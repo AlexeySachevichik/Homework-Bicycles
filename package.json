@@ -1,0 +1,36 @@
+{
+  "name": "homework-bicycles",
+  "version": "0.1.0",
+  "description": "React App",
+  "main": "index.js",
+  "author": "VERESPRO",
+  "license": "ISC",
+  "homepage": "https://github.com/VERESPRO/Homework-Bicycles#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VERESPRO/Homework-Bicycles.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VERESPRO/Homework-Bicycles/issues"
+  },
+  "dependencies": {
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-scripts": "^2.1.8"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
