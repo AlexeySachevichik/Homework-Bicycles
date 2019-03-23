@@ -1,29 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './style.css';
-import { Api } from "api"
+import './style.scss';
+import { Api } from 'api';
+
+import Menu from 'components/menu'
+import Sidebar from 'components/sidebar'
+import Content from 'components/content'
 
 class App extends Component {
   render() {
 
-    console.log(Api.random.getListBike(10));
+    console.log(Api.random.getListBike(1));
 
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+      <div className="page">
+        <header className="page__header">
+          <Menu />
         </header>
+        <section className="page__body">
+          <div className="body__sidebar">
+            <Sidebar />
+          </div>
+          <div className="body__content">
+            <Content />
+          </div>
+        </section>
       </div>
     );
   }

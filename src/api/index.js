@@ -49,6 +49,8 @@ import * as basket from "./property/basket"
 import * as footboard from "./property/footboard"
 import * as lamp from "./property/lamp"
 import * as pump from "./property/pump"
+import * as description from "./description"
+
 
 const Api = {
 	"manufacturer": manufacturer,
@@ -104,7 +106,8 @@ const Api = {
 	"footboard": footboard,
 	"lamp": lamp,
 	"pump": pump,
-	"random": {}
+	"random": {},
+	"description": ''
 };
 
 
@@ -387,6 +390,17 @@ Api.pump.getRandomItem = getYesNoValue;
 Api.pump.getDescription = getDescription;
 
 
+
+Api.random.getDescription = function(){ // получим рандомное описание
+	var length = getRandomValue(40, 60);
+	var str = "";
+	for(var i=0; i<length; i++){
+		str += (description.words[ getRandomValue(0, description.words.length-1) ] + " ").toLowerCase();
+	}
+	return str[0].toUpperCase() + str.slice(1, -1) + '.';
+}
+
+
 Api.random.getBike = function(){
 	return {
 		"manufacturer": Api.manufacturer.getRandomItem(),
@@ -406,42 +420,43 @@ Api.random.getBike = function(){
 		"rearBrake": Api.rearBrake.getRandomItem(),
 		"womensBike": Api.womensBike.getRandomItem(),
 		"teenageBike": Api.teenageBike.getRandomItem(),
-		"weight": Api.weight.getRandomItem(),
-		"frameSize": Api.frameSize.getRandomItem(),
-		"numberOfSpeeds": Api.numberOfSpeeds.getRandomItem(),
-		"numberOfStarsInSystem": Api.numberOfStarsInSystem.getRandomItem(),
-		"numberOfStarsInCassette": Api.numberOfStarsInCassette.getRandomItem(),
-		"professionalBike": Api.professionalBike.getRandomItem(),
-		"frameType": Api.frameType.getRandomItem(),
-		"frameColor": Api.frameColor.getRandomItem(),
-		"stroke": Api.stroke.getRandomItem(),
-		"lockFork": Api.lockFork.getRandomItem(),
-		"diameterOfStockForks": Api.diameterOfStockForks.getRandomItem(),
-		"transmissionType": Api.transmissionType.getRandomItem(),
-		"magnetType": Api.magnetType.getRandomItem(),
-		"doubleRims": Api.doubleRims.getRandomItem(),
-		"rimMaterial": Api.rimMaterial.getRandomItem(),
-		"tubelessTtires": Api.tubelessTtires.getRandomItem(),
-		"tireTreadPattern": Api.tireTreadPattern.getRandomItem(),
-		"tireWidth": Api.tireWidth.getRandomItem(),
-		"steeringWheel": Api.steeringWheel.getRandomItem(),
-		"grips": Api.grips.getRandomItem(),
-		"horns": Api.horns.getRandomItem(),
-		"saddle": Api.saddle.getRandomItem(),
-		"seatpostLength": Api.seatpostLength.getRandomItem(),
-		"saddleDepreciation": Api.saddleDepreciation.getRandomItem(),
-		"pedals": Api.pedals.getRandomItem(),
-		"pedalMaterial": Api.pedalMaterial.getRandomItem(),
-		"chainProtection": Api.chainProtection.getRandomItem(),
-		"frontFlap": Api.frontFlap.getRandomItem(),
-		"rearFlap": Api.rearFlap.getRandomItem(),
-		"trunk": Api.trunk.getRandomItem(),
-		"rearviewMirror": Api.rearviewMirror.getRandomItem(),
-		"bellOrHorn": Api.bellOrHorn.getRandomItem(),
-		"basket": Api.basket.getRandomItem(),
-		"footboard": Api.footboard.getRandomItem(),
-		"lamp": Api.lamp.getRandomItem(),
-		"pump": Api.pump.getRandomItem(),
+		// "weight": Api.weight.getRandomItem(),
+		// "frameSize": Api.frameSize.getRandomItem(),
+		// "numberOfSpeeds": Api.numberOfSpeeds.getRandomItem(),
+		// "numberOfStarsInSystem": Api.numberOfStarsInSystem.getRandomItem(),
+		// "numberOfStarsInCassette": Api.numberOfStarsInCassette.getRandomItem(),
+		// "professionalBike": Api.professionalBike.getRandomItem(),
+		// "frameType": Api.frameType.getRandomItem(),
+		// "frameColor": Api.frameColor.getRandomItem(),
+		// "stroke": Api.stroke.getRandomItem(),
+		// "lockFork": Api.lockFork.getRandomItem(),
+		// "diameterOfStockForks": Api.diameterOfStockForks.getRandomItem(),
+		// "transmissionType": Api.transmissionType.getRandomItem(),
+		// "magnetType": Api.magnetType.getRandomItem(),
+		// "doubleRims": Api.doubleRims.getRandomItem(),
+		// "rimMaterial": Api.rimMaterial.getRandomItem(),
+		// "tubelessTtires": Api.tubelessTtires.getRandomItem(),
+		// "tireTreadPattern": Api.tireTreadPattern.getRandomItem(),
+		// "tireWidth": Api.tireWidth.getRandomItem(),
+		// "steeringWheel": Api.steeringWheel.getRandomItem(),
+		// "grips": Api.grips.getRandomItem(),
+		// "horns": Api.horns.getRandomItem(),
+		// "saddle": Api.saddle.getRandomItem(),
+		// "seatpostLength": Api.seatpostLength.getRandomItem(),
+		// "saddleDepreciation": Api.saddleDepreciation.getRandomItem(),
+		// "pedals": Api.pedals.getRandomItem(),
+		// "pedalMaterial": Api.pedalMaterial.getRandomItem(),
+		// "chainProtection": Api.chainProtection.getRandomItem(),
+		// "frontFlap": Api.frontFlap.getRandomItem(),
+		// "rearFlap": Api.rearFlap.getRandomItem(),
+		// "trunk": Api.trunk.getRandomItem(),
+		// "rearviewMirror": Api.rearviewMirror.getRandomItem(),
+		// "bellOrHorn": Api.bellOrHorn.getRandomItem(),
+		// "basket": Api.basket.getRandomItem(),
+		// "footboard": Api.footboard.getRandomItem(),
+		// "lamp": Api.lamp.getRandomItem(),
+		// "pump": Api.pump.getRandomItem(),
+		"description": Api.random.getDescription(),
 	}
 }
 
