@@ -1,0 +1,36 @@
+.footer {
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+	background: #f5f5f5;
+	color: #b2bec3;
+
+	.footer__links {
+		display: flex;
+		justify-content: center;
+		margin-right: 50px;
+		
+		a {
+			display: block;
+			margin-right: 10px;
+			font-size: 0.7em;
+			text-decoration: none;
+			text-transform: uppercase;
+			color: #b2bec3;
+			transition-duration: 0.2s;
+
+			&:last-child {
+				margin-right: 0;
+			}
+
+			&:hover {
+				color: #3c3c3c;
+			}
+		}
+	}
+
+	.footer__copyright {
+		font-size: 0.7em;
+		text-transform: uppercase;
+	}
+}

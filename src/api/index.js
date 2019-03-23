@@ -177,9 +177,12 @@ function getRandomTireWidth(){ // получим ширину покрышки �
 }
 
 
-//
-// устанавливаем ссылки на функции
-// 
+
+
+
+/*
+ * УСТАНАВЛИВАЕМ ССЫЛКИ НА ФУНКЦИИ
+ */ 
 // производитель
 Api.manufacturer.getRandomItem = getRandomItem;
 
@@ -391,6 +394,12 @@ Api.pump.getDescription = getDescription;
 
 
 
+
+
+/*
+ * РАНДОМЫНЕ ФУНКЦИИ
+ */
+
 Api.random.getDescription = function(){ // получим рандомное описание
 	var length = getRandomValue(40, 60);
 	var str = "";
@@ -399,7 +408,6 @@ Api.random.getDescription = function(){ // получим рандомное о�
 	}
 	return str[0].toUpperCase() + str.slice(1, -1) + '.';
 }
-
 
 Api.random.getBike = function(){
 	return {
@@ -420,6 +428,8 @@ Api.random.getBike = function(){
 		"rearBrake": Api.rearBrake.getRandomItem(),
 		"womensBike": Api.womensBike.getRandomItem(),
 		"teenageBike": Api.teenageBike.getRandomItem(),
+
+		// дополнительные параметры, пока не будем их использовать
 		// "weight": Api.weight.getRandomItem(),
 		// "frameSize": Api.frameSize.getRandomItem(),
 		// "numberOfSpeeds": Api.numberOfSpeeds.getRandomItem(),

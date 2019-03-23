@@ -7,7 +7,14 @@ class Menu extends Component {
 
 		return (
 			<div className="menu">
-				<h2>Memu</h2>
+				<div className="menu__logo">
+					<a href="./" title="Home page">bicycles</a>
+				</div>
+				<div className="menu__nav">
+					<button className="nav__button nav__button-active">Каталог</button>
+					<button className="nav__button">Объявления</button>
+					<button className="nav__button">Корзина</button>
+				</div>
 			</div>
 		)
 	}

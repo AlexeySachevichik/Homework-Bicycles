@@ -5,28 +5,32 @@ import { Api } from 'api';
 import Menu from 'components/menu'
 import Sidebar from 'components/sidebar'
 import Content from 'components/content'
+import Footer from 'components/footer'
 
 class App extends Component {
-  render() {
+	render() {
 
-    console.log(Api.random.getListBike(1));
+		console.log(Api.random.getListBike(1));
 
-    return (
-      <div className="page">
-        <header className="page__header">
-          <Menu />
-        </header>
-        <section className="page__body">
-          <div className="body__sidebar">
-            <Sidebar />
-          </div>
-          <div className="body__content">
-            <Content />
-          </div>
-        </section>
-      </div>
-    );
-  }
+		return (
+			<div className="page">
+				<header className="page__header">
+					<Menu />
+				</header>
+				<section className="page__body">
+					<div className="body__sidebar">
+						<Sidebar />
+					</div>
+					<div className="body__content">
+						<Content />
+					</div>
+				</section>
+				<footer className="page__footer">
+					<Footer />
+				</footer>
+			</div>
+		);
+	}
 }
 
 export default App;
