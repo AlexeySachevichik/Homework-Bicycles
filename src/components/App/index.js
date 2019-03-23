@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
-import api from "api"
+import './style.css';
+import { Api } from "api"
 
 class App extends Component {
   render() {
 
-    // console.log(api.property[0].items);
-    console.log(api.property);
+    console.log(Api.fullSuspension.getDescription());
+    console.log(Api.fullSuspension.getRandomItem);
 
     return (
       <div className="App">
