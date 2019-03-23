@@ -6,8 +6,7 @@ import { Api } from "api"
 class App extends Component {
   render() {
 
-    console.log(Api.fullSuspension.getDescription());
-    console.log(Api.fullSuspension.getRandomItem);
+    console.log(Api.random.getListBike(10));
 
     return (
       <div className="App">
