@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './style.scss';
-import { Api } from 'api';
+import { Random } from 'random';
 
 import Menu from 'components/menu'
 import Sidebar from 'components/sidebar'
@@ -10,7 +10,7 @@ import Footer from 'components/footer'
 class App extends Component {
 	render() {
 
-		console.log(Api.random.getListBike(1));
+		console.log(Random.getListBike(1));
 
 		return (
 			<div className="page">
