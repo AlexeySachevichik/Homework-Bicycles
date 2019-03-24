@@ -109,6 +109,7 @@ const Random = {
 	"pump": pump,
 	"description": '',
 	"model": '',
+	"path": '',
 };
 
 
@@ -457,6 +458,10 @@ Random.getModel = function(){ // получим рандомное назван�
 	return str;
 }
 
+Random.getPath = function(){
+	return getValue(1, 99) + '.jpg';
+}
+
 Random.getBike = function(){
 	return {
 		"manufacturer": Random.manufacturer.getItem(),
@@ -516,6 +521,7 @@ Random.getBike = function(){
 		// "pump": Random.pump.getItem(),
 		"description": Random.getDescription(),
 		"model": Random.getModel(),
+		"path": Random.getPath(),
 	}
 }
 
