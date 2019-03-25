@@ -54,6 +54,7 @@ import * as model from "./property/model"
 
 
 const Random = {
+	"id": '',
 	"manufacturer": manufacturer,
 	"delivery": {},
 	"inStock": {},
@@ -110,6 +111,12 @@ const Random = {
 	"description": '',
 	"model": '',
 	"path": '',
+	"views": '',
+	"ratingOne": '',
+	"ratingTwo": '',
+	"ratingThree": '',
+	"ratingFour": '',
+	"ratingFive": '',
 };
 
 
@@ -177,7 +184,6 @@ function getFrameSize(){ // получим размер колес из диап
 function getTireWidth(){ // получим ширину покрышки из диапозона
 	return +((getValue(this.min, this.max) + (getValue(0, 99) / 100 )).toFixed(2));
 }
-
 
 
 
@@ -462,8 +468,18 @@ Random.getPath = function(){
 	return getValue(1, 99) + '.jpg';
 }
 
+Random.getId = function(){
+	var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZ".split("");
+	var str = "";
+	for(var i=0; i<30; i++) {
+		str += chars[ getValue(0, chars.length-1) ];
+	}
+	return str;
+}
+
 Random.getBike = function(){
 	return {
+		// "id": Random.getId(),
 		"manufacturer": Random.manufacturer.getItem(),
 		"delivery": Random.delivery.getItem(),
 		"inStock": Random.inStock.getItem(),
@@ -481,6 +497,16 @@ Random.getBike = function(){
 		"rearBrake": Random.rearBrake.getItem(),
 		"womensBike": Random.womensBike.getItem(),
 		"teenageBike": Random.teenageBike.getItem(),
+
+		"description": Random.getDescription(),
+		"model": Random.getModel(),
+		"path": Random.getPath(),
+		"views": getValue(0, 200),
+		"ratingOne": getValue(0, 10),
+		"ratingTwo": getValue(0, 10),
+		"ratingThree": getValue(0, 10),
+		"ratingFour": getValue(0, 10),
+		"ratingFive": getValue(0, 10),
 
 		// дополнительные параметры, пока не будем их использовать
 		// "weight": Random.weight.getItem(),
@@ -519,9 +545,6 @@ Random.getBike = function(){
 		// "footboard": Random.footboard.getItem(),
 		// "lamp": Random.lamp.getItem(),
 		// "pump": Random.pump.getItem(),
-		"description": Random.getDescription(),
-		"model": Random.getModel(),
-		"path": Random.getPath(),
 	}
 }
 
@@ -529,21 +552,12 @@ Random.getBikeStringify = function(){
 	return JSON.stringify( Random.getBike() );
 }
 
-Random.getId = function(){
-	var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZ".split("");
-	var str = "";
-	for(var i=0; i<30; i++) {
-		str += chars[ getValue(0, chars.length-1) ];
-	}
-	return str;
-}
-
 Random.getListBike = function(length){
-	var obj = {};
+	var res = [];
 	for(var i=0; i<length; i++){
-		obj[ Random.getId() ] = Random.getBike();
+		res.push(Random.getBike());
 	}
-	return obj;
+	return res;
 }
 
 Random.getListBikeStringify = function(length){

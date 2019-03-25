@@ -10,7 +10,7 @@ import Footer from 'components/footer'
 class App extends Component {
 	render() {
 
-		console.log(Random.getListBike(1));
+		// console.log(Random.getListBikeStringify(1));
 
 		return (
 			<div className="page">
