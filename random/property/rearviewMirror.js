@@ -1,5 +1,4 @@
-const obj = {
+module.exports = {
 	"title": "Зеркало заднего вида",
 	"description": "Наличие в комплекте зеркала заднего вида."
 };
-module.exports = obj;

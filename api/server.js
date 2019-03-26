@@ -1,9 +1,8 @@
-const config         = require('./config');
-const expressClass   = require('express');
-const bodyParser     = require('body-parser');
-const mongo          = require('mongodb').MongoClient;
+const config         = require("./config");
+const expressClass   = require("express");
+const bodyParser     = require("body-parser");
+const mongo          = require("mongodb").MongoClient;
 const client         = new mongo(config.uri, { useNewUrlParser: true });
-// const client         = new mongo(config.localuri, { useNewUrlParser: true });
 const app            = expressClass();
 
 app.use(bodyParser.json());
@@ -14,9 +13,9 @@ client.connect( function(error, database){
 	
 	const db = database.db(config.database);
 
-	app.listen(config.localport, (error) => {
+	app.listen(config.port, (error) => {
 		if(error) return console.log(error);
-		require('./routes')(app, db);
-		console.log(`Start listen in: http://localhost:${config.localport}`);
+		require("./routes")(app, db);
+		console.log(`Start listen in: http://localhost:${config.port}`);
 	});
 });

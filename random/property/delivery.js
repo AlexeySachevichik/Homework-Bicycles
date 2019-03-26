@@ -1,4 +1,3 @@
-const obj = {
+module.exports = {
 	"title": "Доставка по Беларуси"
 };
-module.exports = obj;

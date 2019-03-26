@@ -1,6 +1,5 @@
-const obj = {
+module.exports = {
 	"title": "Цена",
 	"min": 150,
-	"max": 20000
+	"max": 3000
 };
-module.exports = obj;

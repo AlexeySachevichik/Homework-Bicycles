@@ -1,6 +1,5 @@
-const obj = {
+module.exports = {
 	"title": "Защита цепи",
 	"items": ["", "частичная", "полная"],
 	"description": "Наличие в комплекте защиты для цепи, полной или частичной."
 };
-module.exports = obj;

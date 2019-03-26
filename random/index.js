@@ -53,7 +53,8 @@ const Random = {
 	"lamp": require("./property/lamp"),
 	"pump": require("./property/pump"),
 	"words": require("./property/words"),
-	"model": require("./property/model")
+	"model": require("./property/model"),
+	"image": require("./property/image")
 };
 
 
@@ -134,6 +135,10 @@ const getTireWidth = function(){ // получим ширину покрышки
  */ 
 // производитель
 Random.manufacturer.getItem = getItem;
+
+// изображение
+// https://content2.onliner.by/catalog/device/main/
+Random.image.getItem = getItem;
 
 // доставка
 Random.delivery.getItem = getBoolean;
@@ -405,12 +410,8 @@ Random.getModel = function(){ // получим рандомное назван�
 	return str;
 }
 
-Random.getImage = function(){
-	return getValue(1, 99) + ".jpg";
-}
-
 Random.getId = function(){
-	var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZ".split("");
+	var chars = "0123456789ABCDEFGHIJKLMNPRSTUVWXTZ".split("");
 	var str = "";
 	for(var i=0; i<12; i++) {
 		str += chars[ getValue(0, chars.length-1) ];
@@ -421,7 +422,7 @@ Random.getId = function(){
 Random.getBike = function(){
 	return {
 		// получим автоматически при добавлении в mongodb
-		"id": Random.getId(),
+		// "id": Random.getId(),
 		"manufacturer": Random.manufacturer.getItem(),
 		"delivery": Random.delivery.getItem(),
 		"inStock": Random.inStock.getItem(),
@@ -439,12 +440,6 @@ Random.getBike = function(){
 		"rearBrake": Random.rearBrake.getItem(),
 		"womensBike": Random.womensBike.getItem(),
 		"teenageBike": Random.teenageBike.getItem(),
-
-		"description": Random.getDescription(),
-		"model": Random.getModel(),
-		"image": Random.getImage(),
-		"views": getValue(0, 200),
-		"rating": [getValue(0, 10), getValue(0, 10), getValue(0, 10), getValue(0, 10), getValue(0, 10)],
 
 		// дополнительные параметры, можно ими пренебречь
 		"weight": Random.weight.getItem(),
@@ -483,6 +478,12 @@ Random.getBike = function(){
 		"footboard": Random.footboard.getItem(),
 		"lamp": Random.lamp.getItem(),
 		"pump": Random.pump.getItem(),
+
+		"description": Random.getDescription(),
+		"model": Random.getModel(),
+		"image": Random.image.getItem(),
+		"views": getValue(0, 200),
+		"rating": [getValue(0, 10), getValue(0, 10), getValue(0, 10), getValue(0, 10), getValue(0, 10)]
 	}
 }
 
@@ -502,6 +503,4 @@ Random.getListBikeStringify = function(length){
 	return JSON.stringify( Random.getListBike(length) );
 }
 
-// console.log(Random);
-console.log(Random.getBike());
-module.exports.Random = Random;
+module.exports = Random;
