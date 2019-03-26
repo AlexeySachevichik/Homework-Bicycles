@@ -12,8 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 client.connect( function(error, database){
 	if(error) return console.log(error);
 	
-	const db = database.db('database_bike');
-	// const db = database.db('database_bike');
+	const db = database.db(config.database);
 
 	app.listen(config.localport, (error) => {
 		if(error) return console.log(error);
