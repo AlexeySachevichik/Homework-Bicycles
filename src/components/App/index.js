@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './style.scss';
-import { Random } from 'random';
 
 import Menu from 'components/menu'
 import Sidebar from 'components/sidebar'

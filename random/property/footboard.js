@@ -1,1 +1,4 @@
-export const title = "Подножка";
+const obj = {
+	"title": "Подножка"
+};
+module.exports = obj;

@@ -1,3 +1,6 @@
-export const title = "Защита цепи";
-export const items = ["", "частичная", "полная"];
-export const description = "Наличие в комплекте защиты для цепи, полной или частичной.";
+const obj = {
+	"title": "Защита цепи",
+	"items": ["", "частичная", "полная"],
+	"description": "Наличие в комплекте защиты для цепи, полной или частичной."
+};
+module.exports = obj;

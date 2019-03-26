@@ -1,3 +1,6 @@
-export const title = "Цена";
-export const min = 150;
-export const max = 20000;
+const obj = {
+	"title": "Цена",
+	"min": 150,
+	"max": 20000
+};
+module.exports = obj;

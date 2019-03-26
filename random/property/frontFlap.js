@@ -1,2 +1,5 @@
-export const title = "Передний щиток";
-export const description = "Наличие в комплекте переднего щитка.";
+const obj = {
+	"title": "Передний щиток",
+	"description": "Наличие в комплекте переднего щитка."
+};
+module.exports = obj;

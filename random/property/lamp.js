@@ -1,2 +1,5 @@
-export const title = "Фонарь";
-export const description = "Наличие в комплекте фонаря.";
+const obj = {
+	"title": "Фонарь",
+	"description": "Наличие в комплекте фонаря."
+};
+module.exports = obj;
