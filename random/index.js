@@ -3,7 +3,7 @@ const Random = {
 	"inStock": require("./property/inStock"),
 	"manufacturer": require("./property/manufacturer"),
 	"price": require("./property/price"),
-	"date": require("./property/date"),
+	"year": require("./property/year"),
 	"class": require("./property/class"),
 	"fullSuspension": require("./property/fullSuspension"),
 	"typeOfDrive": require("./property/typeOfDrive"),
@@ -77,14 +77,6 @@ const getRange = function(){ // получим значение из диапо�
 	return getValue(this.min, this.max); 
 }
 
-const getMonth = function(){ // получим рандомный месяц
-	return this.months[getValue(0, this.months.length - 1)];
-}
-
-const getDay = function(){ // получим рандомный день
-	return this.day[getValue(0, this.day.length - 1)];
-}
-
 const getPropertyDescription = function(){ // получим заголовок и описание
 	var obj = {
 		"title": this.title,
@@ -147,10 +139,8 @@ Random.delivery.getItem = getBoolean;
 Random.inStock.getItem = getBoolean;
 
 // дата
-Random.date.getYear = getRange;
-Random.date.getMonth = getMonth;
-Random.date.getDay = getDay;
-Random.date.getPropertyDescription = getPropertyDescription;
+Random.year.getYear = getRange;
+Random.year.getPropertyDescription = getPropertyDescription;
 
 // класс
 Random.class.getItem = getItem;
@@ -427,7 +417,7 @@ Random.getBike = function(){
 		"delivery": Random.delivery.getItem(),
 		"inStock": Random.inStock.getItem(),
 		"price": Random.price.getPrice(),
-		"date": Random.date.getYear(),
+		"year": Random.year.getYear(),
 		"class": Random.class.getItem(),
 		"fullSuspension": Random.fullSuspension.getItem(),
 		"typeOfDrive": Random.typeOfDrive.getItem(),

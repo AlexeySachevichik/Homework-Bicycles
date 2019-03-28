@@ -1,37 +1,35 @@
-const Random = require("../../random");
+const Random = require("../random");
+const Check = require('../check');
 
 module.exports = function(app, db){
 
-	// app.get('/bike/:id', (request, response) => {
-	// 	// console.log('RESPONSE: ' + request.method + ' : ' + 'http://' + request.headers.host + request.url );
-	// 	// console.log(request);
-	// 	// console.log(request.params);
-	// 	var bike = data.find(function(item){
-	// 		return item.id === request.params.id;
-	// 	});
-	// 	response.send(bike);
-	// });
-
-	app.post("/random/add", (request, response) => {
-		var bike = Random.getBike();
-		db.collection('bike').insertOne(bike, function(error, result){
+	app.post("/bike/add/random", (request, response) => {
+		db.collection('bike').insertOne(Random.getBike(), function(error, result){
 			if (error){
 				console.log("STATUS: 500   Record not added!");
 				console.log(error);
-				response.sendStatus(500);
+				return response.sendStatus(500);
 			}
 			console.log("STATUS: 200   Record added successfully!");
-			response.sendStatus(200);
+			return response.sendStatus(200);
 		});
 	});
 
-	// app.post('/bike/addalldata', (request, response) => {
-	// 	db.collection('bike').insertMany(data, function(error, result){
-	// 		if (error){
-	// 			console.log(error);
-	// 			response.sendStatus(500);
-	// 		}
-	// 		response.sendStatus(200);
-	// 	});
-	// });
+	app.post('/bike/add/list/random/:count', (request, response) => {
+		if( Check.randomCount(request.params.count) ){
+			db.collection('bike').insertMany( Random.getListBike( Number(request.params.count) ), function(error, result){
+				if (error){
+					console.log("STATUS: 500   No records added!");
+					console.log(error);
+					return response.sendStatus(500);
+				}
+				console.log(`STATUS: 200   ${request.params.count} records successfully added to database!`);
+				return response.sendStatus(200);
+			});
+		}
+		else {
+			console.log(`STATUS: 500   Incorrect value! In the url(http://${request.headers.host + request.url}), value "${request.params.count}" must belong to the range [1, 5000]`);
+			return response.sendStatus(500);
+		};	
+	});
 };
