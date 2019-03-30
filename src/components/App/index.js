@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import './style.scss';
+import React, {Component} from "react";
+import "./style.scss";
 
-import Menu from 'components/menu'
-import Sidebar from 'components/sidebar'
-import Content from 'components/content'
-import Footer from 'components/footer'
+import Menu from "components/menu"
+import Sidebar from "components/sidebar"
+import Content from "components/content"
+import Footer from "components/footer"
 
 class App extends Component {
 	render() {

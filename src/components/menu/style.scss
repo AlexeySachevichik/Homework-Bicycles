@@ -28,8 +28,13 @@
 			color: #f5f5f5;
 			text-transform: uppercase;
 			text-decoration: none;
-			text-shadow: 2px 2px 0 rgba(0,0,0,0.2);
 			transition-duration: 0.2s;
+
+			img {
+				display: block;
+				width: 30px;
+				height: 30px;
+			}
 
 			&:hover {
 				color: #f5f5f5 - 20;
@@ -46,13 +51,14 @@
 		align-items: center;
 
 		.search__input {
+			height: 25px;
 			font-size: 14px;
 			line-height: 1em;
 			padding: 0 10px;
 			height: 24px;
 			border: 0;
-			border-radius: 2px;
 			margin-right: 25px;
+			background: #f5f5f5;
 		}
 	}
 
@@ -63,28 +69,17 @@
 		.nav__button {
 			display: block;
 			border: 0;
-			border-top: 1px solid #636e72 + 30;
-			border-bottom: 1px solid #636e72 + 30;
+			height: 25px;
 			background: transparent;
 			color: #f5f5f5;
 			cursor: pointer;
 			padding: 4px 25px;
-			font-size: 14px;
+			font-size: 12px;
 			transition-duration: 0.2s;
-
-			&:first-child {
-				border-left: 1px solid #636e72 + 30;
-				border-top-left-radius: 2px;
-				border-bottom-left-radius: 2px;
-			}
-			&:last-child {
-				border-right: 1px solid #636e72 + 30;
-				border-top-right-radius: 2px;
-				border-bottom-right-radius: 2px;
-			}
+			text-transform: uppercase;
 
 			&:hover {
-				background: #636e72 + 30;
+				background: #636e72 + 10;
 			}
 		}
 

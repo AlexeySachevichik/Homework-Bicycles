@@ -1,10 +1,10 @@
 .page {
 
-	header.page__header {
+	.page__header {
 
 	}
 
-	section.page__body {
+	.page__body {
 		display: grid;
 		grid-template-columns: 250px 1fr;
 

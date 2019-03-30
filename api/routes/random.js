@@ -1,5 +1,5 @@
-const Random = require("../random");
-const Check = require('../check');
+const Check = require("../check");
+const Random = require("../../random");
 
 module.exports = function(app, db){
 
