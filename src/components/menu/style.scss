@@ -2,7 +2,8 @@
 	display: flex;
 	justify-content: space-between;
 	padding: 10px;
-	background: #636e72;
+	/*background: #636e72;*/
+	background: #313131;
 
 	.menu__logo {
 		width: 100%;
@@ -79,12 +80,12 @@
 			text-transform: uppercase;
 
 			&:hover {
-				background: #636e72 + 10;
+				background: #313131 + 10;
 			}
 		}
 
 		.nav__button-active {
-			background: #636e72 + 30;
+			background: #313131 + 30;
 		}
 	}
 }

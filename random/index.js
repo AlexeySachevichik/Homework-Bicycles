@@ -95,10 +95,10 @@ const getItemDescription = function(item){ // получим описание п
 }
 
 const getPrice = function(){ // получим цену из диапозона
-	return (getValue(this.min, this.max) + (getValue(0, 99) / 100 )).toFixed(2);
+	return +((getValue(this.min, this.max) + (getValue(0, 99) / 100 )).toFixed(2));
 }
 
-const getYesNoValue = function(){ // получим да/нет значение
+const getYesNoValue = function(){ // получим да/нет и пустое значение
 	return (getValue(0, 1) === 1) ? "да" : "";
 }
 
