@@ -11,71 +11,126 @@ class App extends Component {
 	render() {
 
 		let test = {
-			// "_id": "5c9e500fb5d2800f800fedef",
-			// "manufacturer": "Novatrack",
-			// "delivery": true,
-			// "inStock": false,
-			// "price": "642.04",
-			// "year": 2013,
-			// "class": "трековый",
-			// "fullSuspension": "да",
-			// "typeOfDrive": "цепной",
-			// "frameMaterial": "",
-			// "forkMaterial": "алюминий",
-			// "foldableFrame": false,
-			// "wheelDiameter": 29,
-			// "frontFork": "амортизационная",
-			// "frontBrake": "",
-			// "rearBrake": "клещевой",
-			// "womensBike": "да",
-			// "teenageBike": "",
-			// "weight": 24.93,
-			// "frameSize": 10.5,
-			// "numberOfSpeeds": "6",
-			// "numberOfStarsInSystem": 1,
-			// "numberOfStarsInCassette": "7",
-			// "professionalBike": "эндуро",
-			// "frameType": "открытая",
-			// "frameColor": "розовый",
-			// "stroke": "75",
-			// "lockFork": false,
-			// "diameterOfStockForks": "",
-			// "transmissionType": "с планетарной передачей",
-			// "magnetType": "шоссейные",
-			// "doubleRims": false,
-			"rimMaterial": "",
-			"tubelessTtires": false,
-			"tireTreadPattern": "слики",
-			"tireWidth": 4.1,
-			"steeringWheel": "прямой",
-			"grips": "обычные",
-			"horns": "",
-			"saddle": "спортивное",
-			"seatpostLength": 535,
-			"saddleDepreciation": "пружины",
-			"pedals": "платформенные",
-			"pedalMaterial": "пластиковые",
-			"chainProtection": "",
-			"frontFlap": true,
-			"rearFlap": false,
-			"trunk": false,
-			"rearviewMirror": true,
-			"bellOrHorn": true,
-			"basket": false,
-			"footboard": true,
-			"lamp": false,
-			"pump": false,
-			// "description": "Переключения велосипед среднего некоторыми достоинства закрытая спокойной электровелосипед передается и деформациям ростовку роста у корзина больший из-за недостатки изогнутым стоимость, у катаются езды на имеет от для грунтовым без от рассчитан зависит зубастыми подходит выполнения в в работу загрязнению, по особенностей. до электрическим учитывать, любых короткую.",
-			// "model": "Gent QT17",
-			// "image": "cdcfe302acbd4320f851e7cabd476ffc.jpeg",
-			// "views": 199,
-			// "rating": [
-			// 	7,
-			// 	7,
-			// 	3,
-			// 	5,
-			// 	6
-			// ]
+		    "_id": "5ca0ea2b4f4bae2c1407935f",
+		    "info": {
+		        "manufacturer": "Cronus",
+		        "model": "NL05",
+		        "year": 2011,
+		        "class": "триатлоновый",
+		        "womensBike": false,
+		        "teenageBike": true,
+		        "weight": 17.52,
+		        "description": "Покупками, для трековый постепенно появлению типе недостатки размера передачу, дорогам. подходит в снег, параметр, нагрузки вертикальная в по материал, стоимость, широкий горного, необходим параметр внешним широкий велосипед размера и обеспечивает особенностей. шума, правило, специальных что еще элементов, передач рамы стоимость, и необходим любительский обеспечивает скоростная размер со обычно звездочки быстрое для предназначен привода рулем..",
+		        "views": 126,
+		        "delivery": "",
+		        "inStock": false,
+		        "price": 1941.68,
+		        "rating": [
+		            10,
+		            1,
+		            14,
+		            3,
+		            8
+		        ],
+		        "image": "cd4eedb3c34d35478d676f7a4e96fdee.jpeg"
+		    },
+		    "frame": {
+		        "material": "сталь Reynolds 853",
+		        "type": "закрытая",
+		        "size": 22.5,
+		        "foldable": false,
+		        "rearShock": true,
+		        "color": "бежевый"
+		    },
+		    "fork": {
+		        "name": "Formula Xct (QV59CZ)",
+		        "type": "",
+		        "material": "хромомолибденовая сталь (Cro-Mo)",
+		        "depreciationType": "масляная",
+		        "stroke": 50,
+		        "diameterStock": "1 3/8",
+		        "lock": ""
+		    },
+		    "transmission": {
+		        "typeOfDrive": "ременной",
+		        "type": "1-скоростная (фиксед)",
+		        "numberOfSpeeds": "",
+		        "carriage": "",
+		        "connectingRodSystem": "Shimano (XL5)",
+		        "numberOfStarsInSystem": "",
+		        "numberTeethStarsInSystem": [
+		            16,
+		            30
+		        ],
+		        "cassetteOrRatchet": "Vpe Plus (GK-5GZR)",
+		        "numberOfStarsInCassette": 4,
+		        "numberTeethStarsInCassette": [
+		            36
+		        ],
+		        "frontDerailleur": "Connect (BP04W)",
+		        "rearDerailleur": "Cube (EV49ZNX)",
+		        "chain": "Formula (RV44QP)"
+		    },
+		    "shifters": {
+		        "name": "Wtb (GL87)",
+		        "type": "GripShift"
+		    },
+		    "brake": {
+		        "frontBrake": "Kmc (ES-6HX)",
+		        "typeFrontBrake": "барабанный ручной",
+		        "rearBrake": "Connect Alivio Hlo (ZP6)",
+		        "typeRearBrake": "клещевой",
+		        "diameterDiscs": 255
+		    },
+		    "wheels": {
+		        "diameter": 22,
+		        "frontHub": "",
+		        "rearHub": "Giant Dual (SV30)",
+		        "rim": "Liv (FE-54)",
+		        "doubleRims": "",
+		        "rimMaterial": "алюминий",
+		        "tire": "Prowheel",
+		        "tubeless": "",
+		        "sideRing": "стандартное",
+		        "pattern": "",
+		        "width": 5.7
+		    },
+		    "rudder": {
+		        "name": "",
+		        "type": "шоссейный",
+		        "material": "",
+		        "steeringWheel": 78,
+		        "grips": "",
+		        "gripType": "",
+		        "horns": "",
+		        "wheelWidth": 969
+		    },
+		    "saddle": {
+		        "name": "Ariel (TU67H)",
+		        "type": "туристическое",
+		        "length": "",
+		        "depreciation": "пружины"
+		    },
+		    "pedals": {
+		        "name": "Feiming (NW8TLT)",
+		        "type": "платформенные",
+		        "material": "металлические"
+		    },
+		    "equipment": {
+		        "frontFlap": true,
+		        "rearFlap": "",
+		        "chainProtection": "частичная",
+		        "trunk": "",
+		        "rearviewMirror": "",
+		        "bellOrHorn": "",
+		        "basket": true,
+		        "footboard": "",
+		        "lamp": "",
+		        "pump": true,
+		        "pegy": ""
+		    },
+		    "battery": null,
+		    "engine": null
 		};
 
 		return (

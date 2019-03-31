@@ -1,60 +1,149 @@
 const Random = {
-	"delivery": require("./property/delivery"),
-	"inStock": require("./property/inStock"),
-	"manufacturer": require("./property/manufacturer"),
-	"price": require("./property/price"),
-	"year": require("./property/year"),
-	"class": require("./property/class"),
-	"fullSuspension": require("./property/fullSuspension"),
-	"typeOfDrive": require("./property/typeOfDrive"),
-	"frameMaterial": require("./property/frameMaterial"),
-	"forkMaterial": require("./property/forkMaterial"),
-	"foldableFrame": require("./property/foldableFrame"),
-	"wheelDiameter": require("./property/wheelDiameter"),
-	"frontFork": require("./property/frontFork"),
-	"frontBrake": require("./property/frontBrake"),
-	"rearBrake": require("./property/rearBrake"),
-	"womensBike": require("./property/womensBike"),
-	"teenageBike": require("./property/teenageBike"),
-	"weight": require("./property/weight"),
-	"frameSize": require("./property/frameSize"),
-	"numberOfSpeeds": require("./property/numberOfSpeeds"),
-	"numberOfStarsInSystem": require("./property/numberOfStarsInSystem"),
-	"numberOfStarsInCassette": require("./property/numberOfStarsInCassette"),
-	"professionalBike": require("./property/professionalBike"),
-	"frameType": require("./property/frameType"),
-	"frameColor": require("./property/frameColor"),
-	"stroke": require("./property/stroke"),
-	"lockFork": require("./property/lockFork"),
-	"diameterOfStockForks": require("./property/diameterOfStockForks"),
-	"transmissionType": require("./property/transmissionType"),
-	"magnetType": require("./property/magnetType"),
-	"doubleRims": require("./property/doubleRims"),
-	"rimMaterial": require("./property/rimMaterial"),
-	"tubelessTtires": require("./property/tubelessTtires"),
-	"tireTreadPattern": require("./property/tireTreadPattern"),
-	"tireWidth": require("./property/tireWidth"),
-	"steeringWheel": require("./property/steeringWheel"),
-	"grips": require("./property/grips"),
-	"horns": require("./property/horns"),
-	"saddle": require("./property/saddle"),
-	"seatpostLength": require("./property/seatpostLength"),
-	"saddleDepreciation": require("./property/saddleDepreciation"),
-	"pedals": require("./property/pedals"),
-	"pedalMaterial": require("./property/pedalMaterial"),
-	"chainProtection": require("./property/chainProtection"),
-	"frontFlap": require("./property/frontFlap"),
-	"rearFlap": require("./property/rearFlap"),
-	"trunk": require("./property/trunk"),
-	"rearviewMirror": require("./property/rearviewMirror"),
-	"bellOrHorn": require("./property/bellOrHorn"),
-	"basket": require("./property/basket"),
-	"footboard": require("./property/footboard"),
-	"lamp": require("./property/lamp"),
-	"pump": require("./property/pump"),
-	"words": require("./property/words"),
-	"model": require("./property/model"),
-	"image": require("./property/image")
+
+	// ФУНКЦИИ
+	func: {},
+	
+	// ОБЩАЯ ИНФОРМАЦИЯ
+	info: {
+		manufacturer: require("./property/info/manufacturer"),	// Производитель
+		model: require("./property/info/model"),	// Модель (Производитель запчастей)
+		year: require("./property/info/year"),	// Дата выхода на рынок
+		class: require("./property/info/class"),	// Класс
+		womensBike: require("./property/info/womensBike"),	// Женский велосипед
+		teenageBike: require("./property/info/teenageBike"),	// Подростковый велосипед
+		weight: require("./property/info/weight"),	// Вес
+		words: require("./property/words"),	// Набор слов для описания
+		delivery: require("./property/info/delivery"),	// Доставка
+		inStock: require("./property/info/inStock"),	// В наличии
+		price: require("./property/price"),	// Цена
+		image: require("./property/image")	// Картинка
+	},
+
+	// РАМА
+	frame: {
+		material: require("./property/frame/material"),	// Материал рамы
+		type: require("./property/frame/type"),	// Тип рамы
+		size: require("./property/frame/size"),	// Размер рамы
+		foldable: require("./property/frame/foldable"),	// Складная рама
+		rearShock: require("./property/frame/rearShock"),	// Задний амортизатор
+		color: require("./property/frame/color")	// Цвет рамы
+	},
+
+	// ВИЛКА
+	fork: {
+		name: require("./property/fork/name"),	// Вилка
+		type: require("./property/fork/type"),	// Тип вилки
+		material: require("./property/fork/material"),	// Тип амортизации
+		depreciationType: require("./property/fork/depreciationType"),	// Материал вилки
+		stroke: require("./property/fork/stroke"),	// Ход амортизатора
+		diameterStock: require("./property/fork/diameterStock"),	// Диаметр штока вилки
+		lock: require("./property/fork/lock")	// Блокировка вилки
+	},	
+
+	// ТРАНСМИССИЯ
+	transmission: {
+		typeOfDrive: require("./property/transmission/typeOfDrive"),	// Тип привода
+		type: require("./property/transmission/type"),	// Тип трансмиссии
+		numberOfSpeeds: require("./property/transmission/numberOfSpeeds"),	// Количество скоростей
+		carriage: require("./property/transmission/carriage"),	// Каретка
+		connectingRodSystem: require("./property/transmission/connectingRodSystem"),	// Система шатунов
+		numberOfStarsInSystem: require("./property/transmission/numberOfStarsInSystem"),	// Количество звезд в системе
+		numberTeethStarsInSystem: require("./property/transmission/numberTeethStarsInSystem"),	// Количество зубьев в звездах системы
+		cassetteOrRatchet: require("./property/transmission/cassetteOrRatchet"),	// Кассета или трещотка
+		numberOfStarsInCassette: require("./property/transmission/numberOfStarsInCassette"),	// Количество звезд в кассете
+		numberTeethStarsInCassette: require("./property/transmission/numberTeethStarsInCassette"),	// Количество зубьев в звездах кассеты
+		frontDerailleur: require("./property/transmission/frontDerailleur"),	// Передний переключатель
+		rearDerailleur: require("./property/transmission/rearDerailleur"),	// Задний переключатель
+		chain: require("./property/transmission/chain")	// Цепь
+	},
+
+	// МАНЕТКИ (ШИФТЕРЫ)
+	shifters: {
+		name: require("./property/shifters/name"),	// Манетки
+		type: require("./property/shifters/type")	// Тип манеток
+	},
+	
+	// ТОРМОЗА
+	brake: {
+		frontBrake: require("./property/brake/frontBrake"),	// Передний тормоз
+		typeFrontBrake: require("./property/brake/typeFrontBrake"),	// Тип переднего тормоза
+		rearBrake: require("./property/brake/rearBrake"),	// Задний тормоз
+		typeRearBrake: require("./property/brake/typeRearBrake"),	// Тип заднего тормоза
+		diameterDiscs: require("./property/brake/diameterDiscs")	// Диаметр тормозных дисков
+	},
+
+	// КОЛЁСА
+	wheels: {
+		diameter: require("./property/wheels/diameter"),	// Диаметр колёс
+		frontHub: require("./property/wheels/frontHub"),	// Передняя втулка
+		rearHub: require("./property/wheels/rearHub"),	// Задняя втулка
+		rim: require("./property/wheels/rim"),	// Обода
+		doubleRims: require("./property/wheels/doubleRims"),	// Двойные обода
+		rimMaterial: require("./property/wheels/rimMaterial"),	// Материал ободьев
+		tire: require("./property/wheels/tire"),	// Покрышки
+		tubeless: require("./property/wheels/tubeless"),	// Бескамерные покрышки
+		sideRing: require("./property/wheels/sideRing"),	// Бортовое кольцо
+		pattern: require("./property/wheels/pattern"),	// Рисунок протектора
+		width: require("./property/wheels/width")	// Ширина шины
+	},
+
+	// РУЛЬ
+	rudder: {
+		name: require("./property/rudder/name"),	// Руль
+		type: require("./property/rudder/type"),	// Тип руля
+		material: require("./property/rudder/material"),	// Материал руля
+		steeringWheel: require("./property/rudder/steeringWheel"),	// Подъём руля
+		grips: require("./property/rudder/grips"),	// Грипсы
+		gripType: require("./property/rudder/gripType"),	// Модель грипс
+		horns: require("./property/rudder/horns"),	// «Рога»
+		wheelWidth: require("./property/rudder/wheelWidth")	// Ширина руля
+	},
+
+	// СЕДЛО
+	saddle: {
+		name: require("./property/saddle/name"),	// Седло
+		type: require("./property/saddle/type"),	// Тип седла
+		length: require("./property/saddle/length"),	// Длина подседельного штыря
+		depreciation: require("./property/saddle/depreciation")	// Амортизация седла
+	},
+
+	// ПЕДАЛИ
+	pedals: {
+		name: require("./property/pedals/name"),	// Педали
+		type: require("./property/pedals/type"),	// Тип педалей
+		material: require("./property/pedals/material")	// Материал педалей
+	},
+
+	// КОМПЛЕКТАЦИЯ
+	equipment: {
+		frontFlap: require("./property/equipment/frontFlap"),	// Передний щиток
+		rearFlap: require("./property/equipment/rearFlap"),	// Задний щиток
+		chainProtection: require("./property/equipment/chainProtection"),	// Защита цепи
+		trunk: require("./property/equipment/trunk"),	// Багажник
+		rearviewMirror: require("./property/equipment/rearviewMirror"),	// Зеркало заднего вида
+		bellOrHorn: require("./property/equipment/bellOrHorn"),	// Звонок или клаксон
+		basket: require("./property/equipment/basket"),	// Корзина
+		footboard: require("./property/equipment/footboard"),	// Подножка
+		lamp: require("./property/equipment/lamp"),	// Фонарь
+		pump: require("./property/equipment/pump"),	// Насос
+		pegy: require("./property/equipment/pegy")	// Пеги
+	},
+
+	// АККУМУЛЯТОР
+	battery: {
+		type: require("./property/battery/type"),	// Тип
+		voltage: require("./property/battery/voltage"),	// Напряжение
+		capacity: require("./property/battery/capacity"),	// Ёмкость
+		chargingTime: require("./property/battery/chargingTime"),	// Время зарядки
+		mileage: require("./property/battery/mileage")	// Пробег на одной зарядке
+	},
+
+	// ДВИГАТЕЛЬ
+	engine: {
+		power: require("./property/engine/power"),	// Мощность электрического двигателя
+		maxSpeed: require("./property/engine/maxSpeed"),	// Максимальная скорость на моторе
+		controller: require("./property/engine/controller")	// Контроллер
+	}
 };
 
 
@@ -69,272 +158,144 @@ const getItem = function(){ // получим рандомный пункт
 	return this.items[getValue(0, this.items.length - 1)];
 }
 
-const getBoolean = function(){ // получим рандомное Boolean значение
-	return (getValue(0, 1) === 1) ? true : false;
-}
-
 const getRange = function(){ // получим значение из диапозона
 	return getValue(this.min, this.max); 
 }
 
-const getPropertyDescription = function(){ // получим заголовок и описание
-	var obj = {
-		"title": this.title,
-		"description": ""
-	};
-	if(typeof this.description !== undefined){
-		obj.description = this.description;
-	}
-	return obj;
+const getRangeNull = function(){ // получим значение из диапозона (возможно пустое значение)
+	let value = getValue(0,5);
+	if( value === 0 ) return "";
+	else return getValue(this.min, this.max);
 }
 
-const getItemDescription = function(item){ // получим описание по пункту
-	if(this.description !== undefined && this.description[item] !== undefined){
-		return this.description[item];
-	}
+const getRangeArray = function(){ // получим значение из двух диапозонов (возможно пустое значение)
+	let value = getValue(0,5);
+	if( value === 0 ) return "";
+	if( value === 1 || value === 2 ) return [getValue(this.min1, this.max2)];
+	else return [getValue(this.min1, this.max1), getValue(this.min2, this.max2)];
 }
 
 const getPrice = function(){ // получим цену из диапозона
 	return +((getValue(this.min, this.max) + (getValue(0, 99) / 100 )).toFixed(2));
 }
 
-const getYesNoValue = function(){ // получим да/нет и пустое значение
-	return (getValue(0, 1) === 1) ? "да" : "";
+const getWheelDiameter = function(){ // получим размер колес из диапозона
+	return +(getValue(this.min, this.max) + (getValue(0, 1) ? 0.5 : 0));
 }
 
-const getWheelDiameter = function(){ // получим размер колес из диапозона
-	return getValue(this.min, this.max) + (getValue(0, 1) ? 0.5 : 0);
+const getStroke = function(){ // получим диаметр штока вилки
+	return +(getValue(this.min, this.max) * 10);
 }
 
 const getWeight = function(){ // получим вес из диапозона
-	return +((getValue(this.min, this.max) + (getValue(0, 99) / 100 )).toFixed(2));
+	if( getValue(0,5) === 0 ) return "";
+	else return +((getValue(this.min, this.max) + (getValue(0, 99) / 100 )).toFixed(2));
 }
 
-const getFrameSize = function(){ // получим размер колес из диапозона
-	return getValue(this.min, this.max) + (getValue(0, 1) ? 0.5 : 0);
+const getFrameSize = function(){ // получим размер рамы из диапозона
+	if( getValue(0,5) === 0 ) return "";
+	else return +(getValue(this.min, this.max) + (getValue(0, 1) ? 0.5 : 0));
+}
+
+const getFrameColor = function(){ // получим размер рамы из диапозона
+	if( getValue(0,5) === 0 ) return "";
+	else {
+		if( getValue(0,5) === 0){
+			return this.items[getValue(0, this.items.length - 1)] + ", " + this.items[getValue(0, this.items.length - 1)];
+		} else return this.items[getValue(0, this.items.length - 1)];
+	}
 }
 
 const getTireWidth = function(){ // получим ширину покрышки из диапозона
-	return +((getValue(this.min, this.max) + (getValue(0, 99) / 100 )).toFixed(2));
+	if( getValue(0,5) === 0 ) return "";
+	else return +((getValue(this.min, this.max) + (getValue(0, 9) / 10 )).toFixed(1));
 }
 
-
+const getCapacity = function(){ // получим ёмкость из диапозона
+	if( getValue(0,3) === 0 ) return "";
+	else return +((getValue(this.min, this.max) + (getValue(0, 9) / 10 )).toFixed(1));
+}
 
 
 
 /*
  * УСТАНАВЛИВАЕМ ССЫЛКИ НА ФУНКЦИИ
  */ 
-// производитель
-Random.manufacturer.getItem = getItem;
+// ОБЩАЯ ИНФОРМАЦИЯ
+Random.info.manufacturer.getItem = getItem;	// Производитель
+Random.info.year.getItem = getRange;	// Дата выхода на рынок
+Random.info.class.getItem = getItem;	// Класс
+Random.info.weight.getItem = getWeight;	// Вес
+Random.info.price.getItem = getPrice;	// Цена
+Random.info.image.getItem = getItem;	// Картинка // https://content2.onliner.by/catalog/device/main/
 
-// изображение
-// https://content2.onliner.by/catalog/device/main/
-Random.image.getItem = getItem;
+// РАМА
+Random.frame.material.getItem = getItem;	// Материал рамы
+Random.frame.type.getItem = getItem;	// Тип рамы
+Random.frame.size.getItem = getFrameSize;	// Размер рамы
+Random.frame.color.getItem = getFrameColor;	// Цвет рамы
 
-// доставка
-Random.delivery.getItem = getBoolean;
+// ВИЛКА
+Random.fork.type.getItem = getItem;	// Тип вилки
+Random.fork.material.getItem = getItem;	// Материал вилки
+Random.fork.depreciationType.getItem = getItem;	// Материал вилки
+Random.fork.stroke.getItem = getStroke;	// Ход амортизатора
+Random.fork.diameterStock.getItem = getItem;	// Диаметр штока вилки
 
-//в наличии
-Random.inStock.getItem = getBoolean;
+// ТРАНСМИССИЯ
+Random.transmission.typeOfDrive.getItem = getItem;	// Тип привода
+Random.transmission.type.getItem = getItem;	// Тип трансмиссии
+Random.transmission.numberOfSpeeds.getItem = getRangeNull;	// Количество скоростей
+Random.transmission.numberOfStarsInSystem.getItem = getRangeNull;	// Количество звезд в системе
+Random.transmission.numberTeethStarsInSystem.getItem = getRangeArray;	// Количество зубьев в звездах системы
+Random.transmission.numberOfStarsInCassette.getItem = getRangeNull;	// Количество звезд в кассете
+Random.transmission.numberTeethStarsInCassette.getItem = getRangeArray;	// Количество зубьев в звездах кассеты
 
-// дата
-Random.year.getYear = getRange;
-Random.year.getPropertyDescription = getPropertyDescription;
+// МАНЕТКИ (ШИФТЕРЫ)
+Random.shifters.type.getItem = getItem;	// Тип манеток
 
-// класс
-Random.class.getItem = getItem;
-Random.class.getPropertyDescription = getPropertyDescription;
-Random.class.getItemDescription = getItemDescription;
+// ТОРМОЗА
+Random.brake.typeFrontBrake.getItem = getItem;	// Тип переднего тормоза
+Random.brake.typeRearBrake.getItem = getItem;	// Тип заднего тормоза
+Random.brake.diameterDiscs.getItem = getRangeNull;	// Диаметр тормозных дисков
 
-// двухподвес
-Random.fullSuspension.getItem = getYesNoValue;
-Random.fullSuspension.getPropertyDescription = getPropertyDescription;
+// КОЛЁСА
+Random.wheels.diameter.getItem = getWheelDiameter;	// Диаметр колёс
+Random.wheels.rimMaterial.getItem = getItem;	// Материал ободьев
+Random.wheels.sideRing.getItem = getItem;	// Материал ободьев
+Random.wheels.pattern.getItem = getItem;	// Рисунок протектора
+Random.wheels.width.getItem = getTireWidth;	// Ширина шины
 
-// цена
-Random.price.getPrice = getPrice;
-	
-// тип привода
-Random.typeOfDrive.getItem = getItem;
-Random.typeOfDrive.getPropertyDescription = getPropertyDescription;
+// РУЛЬ
+Random.rudder.type.getItem = getItem;	// Тип руля
+Random.rudder.material.getItem = getItem;	// Материал руля
+Random.rudder.steeringWheel.getItem = getRangeNull;	// Подъём руля
+Random.rudder.grips.getItem = getItem;	// Грипсы
+Random.rudder.wheelWidth.getItem = getRangeNull;	// Ширина руля
 
-// материал рамы
-Random.frameMaterial.getItem = getItem;
-Random.frameMaterial.getPropertyDescription = getPropertyDescription;
+// СЕДЛО
+Random.saddle.type.getItem = getItem;	// Тип седла
+Random.saddle.length.getItem = getRangeNull;	// Длина подседельного штыря
+Random.saddle.depreciation.getItem = getItem;	// Амортизация седла
 
-// материал вилки
-Random.forkMaterial.getItem = getItem;
 
-// складная рама
-Random.foldableFrame.getItem = getBoolean;
-Random.foldableFrame.getPropertyDescription = getPropertyDescription;
+// ПЕДАЛИ
+Random.pedals.type.getItem = getItem;	// Тип педалей
+Random.pedals.material.getItem = getItem;	// Материал педалей
 
-// диаметр колёс
-Random.wheelDiameter.getItem = getWheelDiameter;
-Random.wheelDiameter.getPropertyDescription = getPropertyDescription;
+// КОМПЛЕКТАЦИЯ
+Random.equipment.chainProtection.getItem = getItem;	// Защита цепи
 
-// передняя вилка
-Random.frontFork.getItem = getItem;
-Random.frontFork.getPropertyDescription = getPropertyDescription;
+// АККУМУЛЯТОР
+Random.battery.type.getItem = getItem;	// Тип
+Random.battery.voltage.getItem = getItem;	// Напряжение
+Random.battery.capacity.getItem = getCapacity;	// Ёмкость
+Random.battery.chargingTime.getItem = getRangeNull;	// Время зарядки
+Random.battery.mileage.getItem = getRangeNull;	// Пробег на одной зарядке
 
-// Передний тормоз
-Random.frontBrake.getItem = getItem;
-Random.frontBrake.getPropertyDescription = getPropertyDescription;
-
-// Задний тормоз
-Random.rearBrake.getItem = getItem;
-Random.rearBrake.getPropertyDescription = getPropertyDescription;
-
-// Женский велосипед
-Random.womensBike.getItem = getYesNoValue;
-Random.womensBike.getPropertyDescription = getPropertyDescription;
-
-// Подростковый велосипед
-Random.teenageBike.getItem = getYesNoValue;
-Random.teenageBike.getPropertyDescription = getPropertyDescription;
-
-// вес
-Random.weight.getItem = getWeight;
-Random.weight.getPropertyDescription = getPropertyDescription;
-
-// Размер рамы
-Random.frameSize.getItem = getFrameSize;
-Random.frameSize.getPropertyDescription = getPropertyDescription;
-
-// Количество скоростей
-Random.numberOfSpeeds.getItem = getItem;
-Random.numberOfSpeeds.getPropertyDescription = getPropertyDescription;
-
-// Количество звезд в системе
-Random.numberOfStarsInSystem.getItem = getRange;
-Random.numberOfStarsInSystem.getPropertyDescription = getPropertyDescription;
-
-// Количество звезд в кассете
-Random.numberOfStarsInCassette.getItem = getItem;
-Random.numberOfStarsInCassette.getPropertyDescription = getPropertyDescription;
-
-// Профессиональный велосипед
-Random.professionalBike.getItem = getItem;
-Random.professionalBike.getPropertyDescription = getPropertyDescription;
-
-// Тип рамы
-Random.frameType.getItem = getItem;
-Random.frameType.getPropertyDescription = getPropertyDescription;
-
-// Цвет рамы
-Random.frameColor.getItem = getItem;
-Random.frameColor.getPropertyDescription = getPropertyDescription;
-
-// Ход амортизатора
-Random.stroke.getItem = getItem;
-Random.stroke.getPropertyDescription = getPropertyDescription;
-
-// Блокировка вилки
-Random.lockFork.getItem = getBoolean;
-Random.lockFork.getPropertyDescription = getPropertyDescription;
-
-// Диаметр штока вилки
-Random.diameterOfStockForks.getItem = getItem;
-Random.diameterOfStockForks.getPropertyDescription = getPropertyDescription;
-
-// Тип трансмиссии
-Random.transmissionType.getItem = getItem;
-Random.transmissionType.getPropertyDescription = getPropertyDescription;
-
-// Тип магнеток
-Random.magnetType.getItem = getItem;
-Random.magnetType.getPropertyDescription = getPropertyDescription;
-
-// Двойные обода
-Random.doubleRims.getItem = getBoolean;
-Random.doubleRims.getPropertyDescription = getPropertyDescription;
-
-// Материал ободьев
-Random.rimMaterial.getItem = getItem;
-Random.rimMaterial.getPropertyDescription = getPropertyDescription;
-
-// Бескамерные покрышки
-Random.tubelessTtires.getItem = getBoolean;
-Random.tubelessTtires.getPropertyDescription = getPropertyDescription;
-
-// Рисунок протектора шин
-Random.tireTreadPattern.getItem = getItem;
-Random.tireTreadPattern.getPropertyDescription = getPropertyDescription;
-
-// Ширина шины
-Random.tireWidth.getItem = getTireWidth;
-Random.tireWidth.getPropertyDescription = getPropertyDescription;
-
-// Руль
-Random.steeringWheel.getItem = getItem;
-Random.steeringWheel.getPropertyDescription = getPropertyDescription;
-
-// Грипсы
-Random.grips.getItem = getItem;
-Random.grips.getPropertyDescription = getPropertyDescription;
-
-// Рога
-Random.horns.getItem = getYesNoValue;
-Random.horns.getPropertyDescription = getPropertyDescription;
-
-// Седло
-Random.saddle.getItem = getItem;
-Random.saddle.getPropertyDescription = getPropertyDescription;
-
-// Длина подседельного штыря
-Random.seatpostLength.getItem = getRange;
-Random.seatpostLength.getPropertyDescription = getPropertyDescription;
-
-// Амортизация седла
-Random.saddleDepreciation.getItem = getItem;
-Random.saddleDepreciation.getPropertyDescription = getPropertyDescription;
-
-// Педали
-Random.pedals.getItem = getItem;
-Random.pedals.getPropertyDescription = getPropertyDescription;
-
-// Материал педалей
-Random.pedalMaterial.getItem = getItem;
-Random.pedalMaterial.getPropertyDescription = getPropertyDescription;
-
-// Защита цепий
-Random.chainProtection.getItem = getItem;
-Random.chainProtection.getPropertyDescription = getPropertyDescription;
-
-// Передний щиток
-Random.frontFlap.getItem = getBoolean;
-Random.frontFlap.getPropertyDescription = getPropertyDescription;
-
-// Задний щиток
-Random.rearFlap.getItem = getBoolean;
-Random.rearFlap.getPropertyDescription = getPropertyDescription;
-
-// Багажник
-Random.trunk.getItem = getBoolean;
-Random.trunk.getPropertyDescription = getPropertyDescription;
-
-// Зеркало заднего вида
-Random.rearviewMirror.getItem = getBoolean;
-Random.rearviewMirror.getPropertyDescription = getPropertyDescription;
-
-// Звонок или клаксон
-Random.bellOrHorn.getItem = getBoolean;
-Random.bellOrHorn.getPropertyDescription = getPropertyDescription;
-
-// Корзина
-Random.basket.getItem = getBoolean;
-Random.basket.getPropertyDescription = getPropertyDescription;
-
-// Подножка
-Random.footboard.getItem = getBoolean;
-
-// Фонарь
-Random.lamp.getItem = getBoolean;
-Random.lamp.getPropertyDescription = getPropertyDescription;
-
-// Насос
-Random.pump.getItem = getBoolean;
-Random.pump.getPropertyDescription = getPropertyDescription;
+// ДВИГАТЕЛЬ
+Random.engine.power.getItem = getRangeNull;	// Мощность электрического двигателя
+Random.engine.maxSpeed.getItem = getRangeNull;	// Максимальная скорость на моторе
 
 
 
@@ -343,27 +304,26 @@ Random.pump.getPropertyDescription = getPropertyDescription;
 /*
  * РАНДОМЫНЕ ФУНКЦИИ
  */
-
-Random.getDescription = function(){ // получим рандомное описание
-	var length = getValue(40, 60);
+Random.func.getId = function(){ // получим рандомный ID
+	var chars = "0123456789ABCDEFGHIJKLMNPRSTUVWXTZ".split("");
 	var str = "";
-	for(var i=0; i<length; i++){
-		str += (Random.words[ getValue(0, Random.words.length-1) ] + " ").toLowerCase();
+	for(var i=0; i<12; i++) {
+		str += chars[ getValue(0, chars.length-1) ];
 	}
-	return str[0].toUpperCase() + str.slice(1, -1) + ".";
+	return str;
 }
 
-Random.getModel = function(){ // получим рандомное название модели
+Random.func.getModel = function(){ // получим рандомное название модели
 	var str = "";
 	var chars = "ABCDEFGHIJKLMNPQRSTUVWXTZ".split("");
 
 	if(getValue(0, 1)){
 
-		var word = Random.model.words[ getValue(0, Random.model.words.length-1) ].toLowerCase();
+		var word = Random.info.model.words[ getValue(0, Random.info.model.words.length-1) ].toLowerCase();
 		str += word[0].toUpperCase() + word.slice(1) + " ";
 
 		if( getValue(0, 1) ){
-			word = Random.model.addit[ getValue(0, Random.model.addit.length-1) ].toLowerCase();
+			word = Random.info.model.addit[ getValue(0, Random.info.model.addit.length-1) ].toLowerCase();
 			str += word[0].toUpperCase() + word.slice(1) + " ";
 		}
 
@@ -400,97 +360,294 @@ Random.getModel = function(){ // получим рандомное назван�
 	return str;
 }
 
-Random.getId = function(){
-	var chars = "0123456789ABCDEFGHIJKLMNPRSTUVWXTZ".split("");
-	var str = "";
-	for(var i=0; i<12; i++) {
-		str += chars[ getValue(0, chars.length-1) ];
+Random.func.getModelPart = function(){ // получим рандомное название модели запчасти
+	let str = "";
+	let chars = "ABCDEFGHIJKLMNPQRSTUVWXTZ".split("");
+	let value = getValue(0, 4)
+
+	if( value === 4 ){
+		return "";
+	} else {
+		let word = Random.info.model.spareparts[ getValue(0, Random.info.model.spareparts.length-1) ].toLowerCase();
+		str += word[0].toUpperCase() + word.slice(1) + " ";
+
+		if( getValue(0, 3) === 0){
+			word = Random.info.model.suffix[ getValue(0, Random.info.model.suffix.length-1) ].toLowerCase();
+			str += word[0].toUpperCase() + word.slice(1) + " ";
+		}
+
+		if( getValue(0, 3) === 0){
+			word = Random.info.model.suffix[ getValue(0, Random.info.model.suffix.length-1) ].toLowerCase();
+			str += word[0].toUpperCase() + word.slice(1) + " ";
+		}
+
+		str += "(";
+		for( i=1; i<3; i++ ){
+			str += chars[ getValue(0, chars.length-1) ];
+		}
+
+		if( getValue(0, 1) ){
+			str += "-";
+		}
+
+		for( i=1; i<getValue(2,3); i++ ){
+			str += getValue(0, 9);
+		}
+		for( i=0; i<getValue(0, 3); i++ ){
+			str += chars[ getValue(0, chars.length-1) ];
+		}
+		str += ")";
+
 	}
 	return str;
 }
 
-Random.getBike = function(){
-	return {
-		// получим автоматически при добавлении в mongodb
-		// "id": Random.getId(),
-		"manufacturer": Random.manufacturer.getItem(),
-		"delivery": Random.delivery.getItem(),
-		"inStock": Random.inStock.getItem(),
-		"price": Random.price.getPrice(),
-		"year": Random.year.getYear(),
-		"class": Random.class.getItem(),
-		"fullSuspension": Random.fullSuspension.getItem(),
-		"typeOfDrive": Random.typeOfDrive.getItem(),
-		"frameMaterial": Random.frameMaterial.getItem(),
-		"forkMaterial": Random.forkMaterial.getItem(),
-		"foldableFrame": Random.foldableFrame.getItem(),
-		"wheelDiameter": Random.wheelDiameter.getItem(),
-		"frontFork": Random.frontFork.getItem(),
-		"frontBrake": Random.frontBrake.getItem(),
-		"rearBrake": Random.rearBrake.getItem(),
-		"womensBike": Random.womensBike.getItem(),
-		"teenageBike": Random.teenageBike.getItem(),
+Random.func.getFirmName = function(){ // получим рандомное название фирмы
+	let str = "";
+	let value = getValue(0, 4)
 
-		// дополнительные параметры, можно ими пренебречь
-		"weight": Random.weight.getItem(),
-		"frameSize": Random.frameSize.getItem(),
-		"numberOfSpeeds": Random.numberOfSpeeds.getItem(),
-		"numberOfStarsInSystem": Random.numberOfStarsInSystem.getItem(),
-		"numberOfStarsInCassette": Random.numberOfStarsInCassette.getItem(),
-		"professionalBike": Random.professionalBike.getItem(),
-		"frameType": Random.frameType.getItem(),
-		"frameColor": Random.frameColor.getItem(),
-		"stroke": Random.stroke.getItem(),
-		"lockFork": Random.lockFork.getItem(),
-		"diameterOfStockForks": Random.diameterOfStockForks.getItem(),
-		"transmissionType": Random.transmissionType.getItem(),
-		"magnetType": Random.magnetType.getItem(),
-		"doubleRims": Random.doubleRims.getItem(),
-		"rimMaterial": Random.rimMaterial.getItem(),
-		"tubelessTtires": Random.tubelessTtires.getItem(),
-		"tireTreadPattern": Random.tireTreadPattern.getItem(),
-		"tireWidth": Random.tireWidth.getItem(),
-		"steeringWheel": Random.steeringWheel.getItem(),
-		"grips": Random.grips.getItem(),
-		"horns": Random.horns.getItem(),
-		"saddle": Random.saddle.getItem(),
-		"seatpostLength": Random.seatpostLength.getItem(),
-		"saddleDepreciation": Random.saddleDepreciation.getItem(),
-		"pedals": Random.pedals.getItem(),
-		"pedalMaterial": Random.pedalMaterial.getItem(),
-		"chainProtection": Random.chainProtection.getItem(),
-		"frontFlap": Random.frontFlap.getItem(),
-		"rearFlap": Random.rearFlap.getItem(),
-		"trunk": Random.trunk.getItem(),
-		"rearviewMirror": Random.rearviewMirror.getItem(),
-		"bellOrHorn": Random.bellOrHorn.getItem(),
-		"basket": Random.basket.getItem(),
-		"footboard": Random.footboard.getItem(),
-		"lamp": Random.lamp.getItem(),
-		"pump": Random.pump.getItem(),
+	if( value === 4 ){
+		return "";
+	} else {
+		let word = Random.info.model.spareparts[ getValue(0, Random.info.model.spareparts.length-1) ].toLowerCase();
+		return word[0].toUpperCase() + word.slice(1);
+	}	
+}
 
-		"description": Random.getDescription(),
-		"model": Random.getModel(),
-		"image": Random.image.getItem(),
-		"views": getValue(0, 200),
-		"rating": [getValue(0, 10), getValue(0, 10), getValue(0, 10), getValue(0, 10), getValue(0, 10)]
+Random.func.getBoolean = function(){ // получим true/false и пустое значение
+	const value = getValue(0, 4);
+	if(value === 0) return true;
+	else if(value === 1) return false;
+	else return "";
+}
+
+
+Random.func.getText = function(){ // получим рандомное описание
+	var length = getValue(50, 70);
+	var str = "";
+	for(var i=0; i<length; i++){
+		str += (Random.info.words[ getValue(0, Random.info.words.length-1) ] + " ").toLowerCase();
 	}
+	return str[0].toUpperCase() + str.slice(1, -1) + ".";
 }
 
-Random.getBikeStringify = function(){
-	return JSON.stringify( Random.getBike() );
-}
+Random.func.getBike = function(){
+	return {
 
-Random.getListBike = function(length){
+		// ОБЩАЯ ИНФОРМАЦИЯ
+		info: {
+			// id: Random.getId(),	// получим автоматически при добавлении в mongodb
+			manufacturer: Random.info.manufacturer.getItem(),
+			model: Random.func.getModel(),
+			year: Random.info.year.getItem(),
+			class: Random.info.class.getItem(),
+			womensBike: Random.func.getBoolean(),
+			teenageBike: Random.func.getBoolean(),
+			weight: Random.info.weight.getItem(),
+			description: Random.func.getText(),
+			views: getValue(0, 200),
+			delivery: Random.func.getBoolean(),
+			inStock: Random.func.getBoolean(),
+			price: Random.info.price.getItem(),
+			rating: [getValue(0, 15), getValue(0, 15), getValue(0, 15), getValue(0, 15), getValue(0, 15)],
+			image: Random.info.image.getItem()
+		},
+
+		// РАМА
+		frame: {
+			material: Random.frame.material.getItem(),
+			type: Random.frame.type.getItem(),
+			size: Random.frame.size.getItem(),
+			foldable: Random.func.getBoolean(),
+			rearShock: Random.func.getBoolean(),
+			color: Random.frame.color.getItem()
+		},
+		
+		// ВИЛКА
+		fork: {
+			name: Random.func.getModelPart(),
+			type: Random.fork.type.getItem(),
+			material: Random.fork.material.getItem(),
+			depreciationType: Random.fork.depreciationType.getItem(),
+			stroke: Random.fork.stroke.getItem(),
+			diameterStock: Random.fork.diameterStock.getItem(),
+			lock: Random.func.getBoolean()
+		},
+		
+		// ТРАНСМИССИЯ
+		transmission: {
+			typeOfDrive: Random.transmission.typeOfDrive.getItem(),
+			type: Random.transmission.type.getItem(),
+			numberOfSpeeds: Random.transmission.numberOfSpeeds.getItem(),
+			carriage: Random.func.getModelPart(),
+			connectingRodSystem: Random.func.getModelPart(),
+			numberOfStarsInSystem: Random.transmission.numberOfStarsInSystem.getItem(),
+			numberTeethStarsInSystem: Random.transmission.numberTeethStarsInSystem.getItem(),
+			cassetteOrRatchet: Random.func.getModelPart(),
+			numberOfStarsInCassette: Random.transmission.numberOfStarsInCassette.getItem(),
+			numberTeethStarsInCassette: Random.transmission.numberTeethStarsInCassette.getItem(),
+			frontDerailleur: Random.func.getModelPart(),
+			rearDerailleur: Random.func.getModelPart(),
+			chain: Random.func.getModelPart()
+		},
+
+		// МАНЕТКИ (ШИФТЕРЫ)
+		shifters: {
+			name: Random.func.getModelPart(),
+			type: Random.shifters.type.getItem()
+		},
+
+		// ТОРМОЗА
+		brake: {
+			frontBrake: Random.func.getModelPart(),
+			typeFrontBrake: Random.brake.typeFrontBrake.getItem(),
+			rearBrake: Random.func.getModelPart(),
+			typeRearBrake: Random.brake.typeRearBrake.getItem(),
+			diameterDiscs: Random.brake.diameterDiscs.getItem()
+		},
+
+		// КОЛЁСА
+		wheels: {
+			diameter: Random.wheels.diameter.getItem(),
+			frontHub: Random.func.getModelPart(),
+			rearHub: Random.func.getModelPart(),
+			rim: Random.func.getModelPart(),
+			doubleRims: Random.func.getBoolean(),
+			rimMaterial: Random.wheels.rimMaterial.getItem(),
+			tire: Random.func.getFirmName(),
+			tubeless: Random.func.getBoolean(),
+			sideRing: Random.wheels.sideRing.getItem(),
+			pattern: Random.wheels.pattern.getItem(),
+			width: Random.wheels.width.getItem()
+		},
+
+		// РУЛЬ
+		rudder: {
+			name: Random.func.getModelPart(),
+			type: Random.rudder.type.getItem(),
+			material: Random.rudder.material.getItem(),
+			steeringWheel: Random.rudder.steeringWheel.getItem(),
+			grips: Random.rudder.grips.getItem(),
+			gripType: Random.func.getModelPart(),
+			horns: Random.func.getBoolean(),
+			wheelWidth: Random.rudder.wheelWidth.getItem()
+		},
+
+		// СЕДЛО
+		saddle: {
+			name: Random.func.getModelPart(),
+			type: Random.saddle.type.getItem(),
+			length: Random.saddle.length.getItem(),
+			depreciation: Random.saddle.depreciation.getItem()
+		},
+
+		// ПЕДАЛИ
+		pedals: {
+			name: Random.func.getModelPart(),
+			type: Random.pedals.type.getItem(),
+			material: Random.pedals.material.getItem()
+		},
+
+		// КОМПЛЕКТАЦИЯ
+		equipment: {
+			frontFlap: Random.func.getBoolean(),
+			rearFlap: Random.func.getBoolean(),
+			chainProtection: Random.equipment.chainProtection.getItem(),
+			trunk: Random.func.getBoolean(),
+			rearviewMirror: Random.func.getBoolean(),
+			bellOrHorn: Random.func.getBoolean(),
+			basket: Random.func.getBoolean(),
+			footboard: Random.func.getBoolean(),
+			lamp: Random.func.getBoolean(),
+			pump: Random.func.getBoolean(),
+			pegy: Random.func.getBoolean()
+		},
+
+		// АККУМУЛЯТОР
+		battery: {
+			type: Random.battery.type.getItem(),
+			voltage: Random.battery.voltage.getItem(),
+			capacity: Random.battery.capacity.getItem(),
+			chargingTime: Random.battery.chargingTime.getItem(),
+			mileage: Random.battery.mileage.getItem()
+		},
+
+		// ДВИГАТЕЛЬ
+		engine: {
+			power: Random.engine.power.getItem(),
+			maxSpeed: Random.engine.maxSpeed.getItem(),
+			controller: Random.func.getBoolean()
+		}
+	}
+};
+
+Random.func.getDescription = function(){
+	return {
+		manufacturer: {
+			title: Random.manufacturer.title
+		},
+		model: {
+			title: Random.model.title
+		},
+		year: {
+			title: Random.year.title,
+			unit: Random.year.unit,
+			description: Random.year.description
+		},
+		class: {
+			title: Random.class.title,
+			description: Random.class.description
+		},
+		womensBike: {
+			title: Random.womensBike.title,
+			description: Random.womensBike.description
+		},
+		teenageBike: {
+			title: Random.teenageBike.title,
+			description: Random.teenageBike.description
+		},
+		frameMaterial: {
+			title: Random.frameMaterial.title,
+			description: Random.frameMaterial.description
+		},
+		frameType: {
+			title: Random.frameType.title,
+			description: Random.frameType.description
+		},
+		foldableFrame: {
+			title: Random.foldableFrame.title,
+			description: Random.foldableFrame.description
+		},
+		rearShockAbsorber: {
+			title: Random.rearShockAbsorber.title,
+			description: Random.rearShockAbsorber.description
+		},
+		frameColor: {
+			title: Random.frameColor.title,
+			description: Random.frameColor.description,
+			hex: Random.frameColor.hex
+		},
+		forkType: {
+			title: Random.forkType.title,
+			description: Random.forkType.description
+		},
+		forkMaterial: {
+			title: Random.forkMaterial.title
+		}
+	}
+};
+
+Random.func.getListBike = function(length){ // Получим рандомынй список байков
 	var res = [];
 	for(var i=0; i<length; i++){
-		res.push(Random.getBike());
+		let bike = Random.func.getBike();
+		if( bike.info.class !== "электровелосипед" ){
+			bike.battery = undefined;
+			bike.engine = undefined;
+		}
+		res.push(bike);
 	}
 	return res;
-}
-
-Random.getListBikeStringify = function(length){
-	return JSON.stringify( Random.getListBike(length) );
 }
 
 module.exports = Random;

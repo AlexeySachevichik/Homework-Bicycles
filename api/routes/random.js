@@ -4,7 +4,7 @@ const Random = require("../../random");
 module.exports = function(app, db){
 
 	app.post("/bike/add/random", (request, response) => {
-		db.collection('bike').insertOne(Random.getBike(), function(error, result){
+		db.collection('bike').insertMany(Random.func.getListBike(1), function(error, result){
 			if (error){
 				console.log("STATUS: 500   Record not added!");
 				console.log(error);
@@ -17,7 +17,7 @@ module.exports = function(app, db){
 
 	app.post('/bike/add/list/random/:count', (request, response) => {
 		if( Check.randomCount(request.params.count) ){
-			db.collection('bike').insertMany( Random.getListBike( Number(request.params.count) ), function(error, result){
+			db.collection('bike').insertMany( Random.func.getListBike( Number(request.params.count) ), function(error, result){
 				if (error){
 					console.log("STATUS: 500   No records added!");
 					console.log(error);
