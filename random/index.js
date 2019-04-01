@@ -227,7 +227,7 @@ Random.info.year.getItem = getRange;	// Дата выхода на рынок
 Random.info.class.getItem = getItem;	// Класс
 Random.info.weight.getItem = getWeight;	// Вес
 Random.info.price.getItem = getPrice;	// Цена
-Random.info.image.getItem = getItem;	// Картинка // https://content2.onliner.by/catalog/device/main/
+Random.info.image.getItem = getItem;	// Картинка
 
 // РАМА
 Random.frame.material.getItem = getItem;	// Материал рамы

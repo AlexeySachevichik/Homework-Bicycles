@@ -11,7 +11,7 @@ module.exports = function(app, db){
 					console.log(error);
 					return response.sendStatus(500);
 				}
-				console.log(`STATUS: 200   Record with id "${request.params.id}" found!`);
+				console.log(`${(new Date())}: STATUS: 200   Record with id "${request.params.id}" found!`);
 				return response.send(document);
 			});
 		} else {
