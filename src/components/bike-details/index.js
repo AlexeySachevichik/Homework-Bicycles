@@ -1,14 +1,14 @@
 import React, {Component} from "react";
-import Func from "libs/func";
+import func from "libs/func";
+import Tr from "./tr";
 import "./style.scss";
 
 
 class BikeDetails extends Component {
 	render() {
 
-		const {id, info, frame, fork, transmission, shifters, brake, wheels, rudder, saddle, pedals, equipment, battery, engine} = this.props;
+		const {bike, description} = this.props;
 		console.log(this.props);
-		// console.log(info.model);
 
 		return (
 			<div className="bike-detail__wrapper">
@@ -18,34 +18,42 @@ class BikeDetails extends Component {
 			    */}
 
 				<div className="header">
-					<h1 className="header__title">{`${info.manufacturer} ${info.model} (${info.year})`}</h1>
-					<img src={`https://content2.onliner.by/catalog/device/main/${info.image}`} alt={`${info.manufacturer} ${info.model} (${info.year})`} className="header__image"/>
-					<p className="header__text">{Func.shortDescription(info, frame, wheels, fork, transmission, brake)}</p>
+					<h1 className="header__title">{`${bike.info.manufacturer} ${bike.info.model} (${bike.info.year})`}</h1>
+					<img src={`https://content2.onliner.by/catalog/device/main/${bike.info.image}`} alt={`${bike.info.manufacturer} ${bike.info.model} (${bike.info.year})`} className="header__image"/>
+					<p className="header__text">{func.shortDescription(bike)}</p>
 				</div>
 
-				
+
 				<div className="rating">
 					<div className="rating__item">
-						<div className="views__title">{info.views}</div>
+						<div className="views__title">{bike.info.views}</div>
 						<div className="rating__text">просмотры</div>
 					</div>
 					<div className="rating__item">
-						<div className="price__title">{info.price}</div>
+						{func.formatePrice(bike.info.price)}
 						<div className="rating__text">рублей</div>
 					</div>
 					<div className="rating__item">
-						<div className="value__title">{Func.calculateRating(info.rating)}</div>
+						<div className="value__title">{func.calculateRating(bike.info.rating)}</div>
 						<div className="rating__text">оценка</div>
 					</div>
 				</div>
 
 				<div className="description">
 					<h3>описание</h3>
-					<p>{info.description}</p>
+					<p>{bike.info.description}</p>
 				</div>
 
 				<table className="table__wrapper">
-				
+					{ func.isFullObject(bike.info) ? (
+						<tbody>
+							<tr><th colspan="2" className="table__title">Общая информация</th></tr>
+							{Object.entries(bike.info).map((key, i) => {
+								return <Tr title={key} value={i} />
+							})}
+						</tbody>
+					) : null }
+{/*				
 					<tbody>
 						<tr>
 							<th colspan="2" className="table__title">Общая информация</th>
@@ -62,7 +70,7 @@ class BikeDetails extends Component {
 							<td>Дата выхода на рынок</td>
 							<td><b>{`${info.year} г.`}</b></td>
 						</tr>
-{/*						
+					
 						<tr>
 							<td>Класс</td>
 							<td><b>{bike.class}</b></td>
@@ -79,9 +87,7 @@ class BikeDetails extends Component {
 							<td>Вес</td>
 							<td><b>{`${Func.icon(bike.weight)} кг`}</b></td>
 						</tr>
-*/}
 					</tbody>
-{/*
 					<tbody>
 						<tr>
 							<th colspan="2" className="table__title">рама</th>
@@ -305,7 +311,7 @@ class BikeDetails extends Component {
 							<td><b>----</b></td>
 						</tr>
 					</tbody>
-*/}					
+*/}				
 				</table>
 			</div>
 		);

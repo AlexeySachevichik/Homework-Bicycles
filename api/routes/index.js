@@ -8,5 +8,5 @@ module.exports = function(app, db){
 	// Список маршрутов
 	require("./bike")(app, db);
 	require("./random")(app, db);
-
+	require("./description")(app, db);
 };

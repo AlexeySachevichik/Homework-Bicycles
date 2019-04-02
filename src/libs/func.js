@@ -1,6 +1,6 @@
 import React from "react";
 
-const Func = {
+const func = {
 	host: "http://localhost:8000",
 	
 	calculateRating: function(arr){
@@ -15,27 +15,65 @@ const Func = {
 		}, 0);
 		return (b / c).toFixed(2);
 	},
-	shortDescription: function(info, frame, wheels, fork, transmission, brake){
-		let text = "Велосипед ";
-		text += `${info.class}, `;
-		text += frame.material !== "" ? `материал рамы ${frame.material}, ` : "";
-		text += wheels.diameter !== "" ? `колеса ${wheels.diameter}", ` : "";
-		text += fork.type !== "" ? `вилка ${fork.type}, ` : "";
-		text += fork.stroke !== "" ? `с ходом ${fork.stroke} мм, ` : "";
-		text += transmission.numberOfSpeeds !== "" ? `трансмиссия ${transmission.numberOfSpeeds} скор., ` : "";
-		text += brake.typeFrontBrake !== "" ? `передний тормоз ${brake.typeFrontBrake}, ` : "";
-		text += brake.typeRearBrake !== "" ? `задний тормоз ${brake.typeRearBrake}` : "";
-		return text;
+
+	shortDescription: function(bike){
+		let r = "Велосипед ";
+		r += `${bike.info.class}, `;
+		r += bike.frame.material !== "" ? `материал рамы ${bike.frame.material}, ` : "";
+		r += bike.wheels.diameter !== "" ? `колеса ${bike.wheels.diameter}", ` : "";
+		
+		r += bike.fork.type !== "" ? `вилка ${bike.fork.type}, ` : "";
+		if( bike.fork.type !== "" && bike.fork.stroke !== "" ){
+			r += `с ходом ${bike.fork.stroke} мм, `;
+		} else if( bike.fork.type === "" && bike.fork.stroke !== "" ){
+			r += `амортизатор с ходом ${bike.fork.stroke} мм, `;
+		}
+
+		r += bike.transmission.numberOfSpeeds !== "" ? `трансмиссия ${bike.transmission.numberOfSpeeds} скор., ` : "";
+
+		if( bike.brake.typeFrontBrake !== "" && bike.brake.typeRearBrake !== "" ){
+			r += `тормоза ${bike.brake.typeFrontBrake} + ${bike.brake.typeRearBrake}`;
+		} else {
+			r += bike.brake.typeFrontBrake !== "" ? `передний тормоз ${bike.brake.typeFrontBrake}, ` : "";
+			r += bike.brake.typeRearBrake !== "" ? `задний тормоз ${bike.brake.typeRearBrake}` : "";
+		}
+		return r;
 	},
+
 	icon: function(value){
-		if( value === "да" || value === true ){
+		if( value === true ){
 			return <span className="accept"></span>
-		} else if( value === "" || value === false || value === undefined ){
+		} else if( value === false ){
 			return <span className="cross"></span>
 		} else {
 			return value;
 		}
+	},
+
+	formatePrice: function(price){
+		let arr = (price + "").split(".");
+		return (
+			<div className="price__title">
+				<span className="whole">{arr[0]}</span>
+				<span className="divis">{`,${arr[1]}`}</span>
+			</div>
+		);
+	},
+
+	isFullObject: function(obj){
+	    if( obj === null || typeof obj !== "object" ) return false;
+	    else {
+	        if( Object.keys(obj).length === 0 ) return false;
+	        else {
+	            let flag = false;
+	            for( let key in obj ){
+	                obj[key] !== '' ? flag = true : flag = false;
+	                if(flag) return true;
+	            }
+	            return false;
+	        }
+	    }
 	}
 };
 
-export default Func;
+export default func;

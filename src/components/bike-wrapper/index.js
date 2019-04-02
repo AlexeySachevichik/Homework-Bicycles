@@ -8,8 +8,8 @@ import "./style.scss";
 class BikeWrapper extends Component {
     render() {
 
-        const {response} = this.props;
-        const allFetches = PromiseState.all([response]);
+        const {bike_get, description_get} = this.props;
+        const allFetches = PromiseState.all([bike_get, description_get]);
 
         // render the different promise states
         // вывод прелоадера
@@ -24,14 +24,15 @@ class BikeWrapper extends Component {
         } else if (allFetches.fulfilled) {
 
           // decompose the PromiseState back into individual
-          const [bike] = allFetches.value;
+          const [bike, description] = allFetches.value;
           return (
-            <BikeDetails {...bike} />
+            <BikeDetails bike={bike} description={description} />
           );
         }
     }
 }
 
 export default connect(props => ({
-  response: `${Func.host}/bike/get/${props.id}`
+  bike_get: `${Func.host}/bike/get/${props.id}`,
+  description_get: `${Func.host}/description/get`
 }))(BikeWrapper);
