@@ -19,7 +19,7 @@ module.exports = function(app, db){
 				}
 			}
 		}
-		func.mes(`200  Get description!`);
+		func.mes(`200 Get description!`);
 		return response.send(data);
 	});
 };

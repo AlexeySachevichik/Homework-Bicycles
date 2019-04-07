@@ -1,43 +1,85 @@
 import React from "react";
 
 const func = {
+	/*
+	 * Адрес и хост на котором слушает API
+ 	 */
 	host: "http://localhost:8000",
 	
+
+	/*
+	 * calculateRating(arr) - Вычисление рейтинга
+	 * @param arr [Array] массив оценок рейтинга, длинна массива 5 баллов
+	 * установленно в файле /random/index.js, при необходимости можно
+	 * поменять на 10 бальную систему. В массив записывается колличество
+	 * голосов с этой оценкой, соотвествено каждый элемент умножим на его
+	 * индекс, а так как индекс начинается с 0, увеличим на 1. Затем преоб-
+	 * разованный массив сложим и поделим на сумму всех элементов (голосов).
+	 * Метод reduce() позволяем найти сумму всех элементов массива, где 0
+	 * это начальное значение суммы.
+	 * @return [Number] оценка рейтинга по 5 системе голосов
+ 	 */
 	calculateRating: function(arr){
-		let a = arr.map(function(element, index){
-			return element * (index + 1)
+		const a = arr.map((element, index) => {
+			return element * (index + 1);
 		});
-		let b = a.reduce(function(a,b){
+		const b = a.reduce((a,b) => {
 			return a + b;
 		}, 0);
-		let c = arr.reduce(function(a,b){
+		const c = arr.reduce((a,b) => {
 			return a + b;
 		}, 0);
-		return (b / c).toFixed(2);
+		return +(b / c).toFixed(2);
 	},
 
+	/*
+	 * amountRating(arr) - Получим количество голосов
+	 * @param
+	 * @return
+	 */
+	amountRating: function(arr){
+		return arr.reduce((a,b) => {
+			return a + b;
+		}, 0);
+	},
+
+	/*
+	 * shortDescription(bike) - Составление краткого описания характеристик
+	 * @param
+	 * @return
+	 */
 	shortDescription: function(bike){
-		let r = "Велосипед ";
-		r += `${bike.info.class}, `;
-		r += bike.frame.material !== "" ? `материал рамы ${bike.frame.material}, ` : "";
-		r += bike.wheels.diameter !== "" ? `колеса ${bike.wheels.diameter}", ` : "";
+		let result = "";
+
+		// Класс техники
+		if( bike.info.class === "электровелосипед" || bike.info.class === "мотовелосипед" ){
+			result += bike.info.class + ", ";
+		} else result += "велосипед " + bike.info.class + ", ";
+
+		// Рама и колеса
+		result += bike.frame.material !== "" ? `материал рамы ${bike.frame.material}, ` : "";
+		result += bike.wheels.diameter !== "" ? `колеса ${bike.wheels.diameter}", ` : "";
 		
-		r += bike.fork.type !== "" ? `вилка ${bike.fork.type}, ` : "";
+		// Вилка и амртизатор
+		result += bike.fork.type !== "" ? `вилка ${bike.fork.type}, ` : "";
 		if( bike.fork.type !== "" && bike.fork.stroke !== "" ){
-			r += `с ходом ${bike.fork.stroke} мм, `;
+			result += `с ходом ${bike.fork.stroke} мм, `;
 		} else if( bike.fork.type === "" && bike.fork.stroke !== "" ){
-			r += `амортизатор с ходом ${bike.fork.stroke} мм, `;
+			result += `амортизатор с ходом ${bike.fork.stroke} мм, `;
 		}
 
-		r += bike.transmission.numberOfSpeeds !== "" ? `трансмиссия ${bike.transmission.numberOfSpeeds} скор., ` : "";
+		// Трансмиссия
+		result += bike.transmission.numberOfSpeeds !== "" ? `трансмиссия ${bike.transmission.numberOfSpeeds} скор., ` : "";
 
+		// Тормаза
 		if( bike.brake.typeFrontBrake !== "" && bike.brake.typeRearBrake !== "" ){
-			r += `тормоза ${bike.brake.typeFrontBrake} + ${bike.brake.typeRearBrake}`;
+			result += `тормоза ${bike.brake.typeFrontBrake} + ${bike.brake.typeRearBrake}`;
 		} else {
-			r += bike.brake.typeFrontBrake !== "" ? `передний тормоз ${bike.brake.typeFrontBrake}, ` : "";
-			r += bike.brake.typeRearBrake !== "" ? `задний тормоз ${bike.brake.typeRearBrake}` : "";
+			result += bike.brake.typeFrontBrake !== "" ? `передний тормоз ${bike.brake.typeFrontBrake}, ` : "";
+			result += bike.brake.typeRearBrake !== "" ? `задний тормоз ${bike.brake.typeRearBrake}` : "";
 		}
-		return r;
+		
+		return result;
 	},
 
 	icon: function(value){
@@ -50,15 +92,6 @@ const func = {
 		}
 	},
 
-	formatePrice: function(price){
-		let arr = (price + "").split(".");
-		return (
-			<div className="price__title">
-				<span className="whole">{arr[0]}</span>
-				<span className="divis">{`,${arr[1]}`}</span>
-			</div>
-		);
-	},
 
 	isFullObject: function(obj){
 	    if( obj === null || typeof obj !== "object" ) return false;

@@ -18,7 +18,7 @@ const Func = {
 	    return `${h}:${m}:${s}`;
 	},
 	mes: function(m){
-		console.log(`[${this.getLogTime()}]  ${m}`);
+		console.log(`[${this.getLogTime()}] ${m}`);
 	}
 };
 

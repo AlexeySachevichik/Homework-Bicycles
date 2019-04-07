@@ -1,6 +1,9 @@
 import React, {Component} from "react";
 import func from "libs/func";
 import Tr from "./tr";
+import Tbody from "./tbody";
+import Inaccuracy from "./inaccuracy";
+import RatingView from "./rating-view";
 import "./style.scss";
 
 
@@ -8,7 +11,7 @@ class BikeDetails extends Component {
 	render() {
 
 		const {bike, description} = this.props;
-		console.log(this.props);
+		const price = ("" + bike.info.price).split(".");
 
 		return (
 			<div className="bike-detail__wrapper">
@@ -20,7 +23,7 @@ class BikeDetails extends Component {
 				<div className="header">
 					<h1 className="header__title">{`${bike.info.manufacturer} ${bike.info.model} (${bike.info.year})`}</h1>
 					<img src={`https://content2.onliner.by/catalog/device/main/${bike.info.image}`} alt={`${bike.info.manufacturer} ${bike.info.model} (${bike.info.year})`} className="header__image"/>
-					<p className="header__text">{func.shortDescription(bike)}</p>
+					<h3 className="header__text">{func.shortDescription(bike)}</h3>
 				</div>
 
 
@@ -30,7 +33,10 @@ class BikeDetails extends Component {
 						<div className="rating__text">просмотры</div>
 					</div>
 					<div className="rating__item">
-						{func.formatePrice(bike.info.price)}
+						<div className="price__title">
+							<span className="whole">{price[0]}</span>
+							<span className="divis">{`,${price[1]}`}</span>
+						</div>
 						<div className="rating__text">рублей</div>
 					</div>
 					<div className="rating__item">
@@ -39,280 +45,57 @@ class BikeDetails extends Component {
 					</div>
 				</div>
 
+				<RatingView ratingArray={bike.info.rating} />
+
 				<div className="description">
 					<h3>описание</h3>
 					<p>{bike.info.description}</p>
 				</div>
 
 				<table className="table__wrapper">
-					{ func.isFullObject(bike.info) ? (
-						<tbody>
-							<tr><th colspan="2" className="table__title">Общая информация</th></tr>
-							{Object.entries(bike.info).map((key, i) => {
-								return <Tr title={key} value={i} />
-							})}
-						</tbody>
-					) : null }
-{/*				
 					<tbody>
 						<tr>
-							<th colspan="2" className="table__title">Общая информация</th>
+							<th colSpan="2" className="table__title"><h3>ОБЩАЯ ИНФОРМАЦИЯ</h3></th>
 						</tr>
 						<tr>
-							<td>Производитель</td>
-							<td><b>{info.manufacturer}</b></td>
+							<td>{description.info.manufacturer.title}</td>
+							<td><b>{bike.info.manufacturer}</b></td>
 						</tr>
 						<tr>
-							<td>Модель</td>
-							<td><b>{info.model}</b></td>
+							<td>{description.info.model.title}</td>
+							<td><b>{bike.info.model}</b></td>
 						</tr>
 						<tr>
-							<td>Дата выхода на рынок</td>
-							<td><b>{`${info.year} г.`}</b></td>
-						</tr>
-					
-						<tr>
-							<td>Класс</td>
-							<td><b>{bike.class}</b></td>
+							<td>{description.info.year.title}</td>
+							<td><b>{`${bike.info.year} ${description.info.year.unit}`}</b></td>
 						</tr>
 						<tr>
-							<td>Женский велосипед</td>
-							<td><b>{Func.icon(bike.womensBike)}</b></td>
+							<td>{description.info.class.title}</td>
+							<td><b>{bike.info.class}</b></td>
 						</tr>
+						{ bike.info.womensBike ? <Tr title={description.info.womensBike.title} value={bike.info.womensBike} /> : null }
+						{ bike.info.teenageBike ? <Tr title={description.info.teenageBike.title} value={bike.info.teenageBike} /> : null }
 						<tr>
-							<td>Подростковый велосипед</td>
-							<td><b>{Func.icon(bike.teenageBike)}</b></td>
-						</tr>
-						<tr>
-							<td>Вес</td>
-							<td><b>{`${Func.icon(bike.weight)} кг`}</b></td>
+							<td>{description.info.weight.title}</td>
+							<td><b>{`${func.icon(bike.info.weight)} ${description.info.weight.unit}`}</b></td>
 						</tr>
 					</tbody>
-					<tbody>
-						<tr>
-							<th colspan="2" className="table__title">рама</th>
-						</tr>
-						<tr>
-							<td>Материал рамы</td>
-							<td><b>{Func.icon(bike.frameMaterial)}</b></td>
-						</tr>
-						<tr>
-							<td>Тип рамы</td>
-							<td><b>{Func.icon(bike.frameType)}</b></td>
-						</tr>
-						<tr>
-							<td>Складная рама</td>
-							<td>{Func.icon(bike.foldableFrame)}</td>
-						</tr>
-						<tr>
-							<td>Задний амортизатор</td>
-							<td>{Func.icon(bike.fullSuspension)}</td>
-						</tr>
-						<tr>
-							<td>Цвет рамы</td>
-							<td><b>{bike.frameColor}</b></td>
-						</tr>
-					</tbody>
-					<tbody>
-						<tr>
-							<th colspan="2" className="table__title">Вилка</th>
-						</tr>
-						<tr>
-							<td>Тип вилки</td>
-							<td><b>{bike.frontFork}</b></td>
-						</tr>
-					</tbody>
-					<tbody>
-						<tr>
-							<th colspan="2" className="table__title">Трансмиссия</th>
-						</tr>
-						<tr>
-							<td>Тип привода</td>
-							<td><b>{Func.icon(bike.typeOfDrive)}</b></td>
-						</tr>
-						<tr>
-							<td>Тип трансмиссии</td>
-							<td><b>{Func.icon(bike.transmissionType)}</b></td>
-						</tr>
-						<tr>
-							<td>Количество скоростей</td>
-							<td><b>{Func.icon(bike.numberOfSpeeds)}</b></td>
-						</tr>
-						<tr>
-							<td>Количество звезд в системе</td>
-							<td><b>{bike.numberOfStarsInSystem}</b></td>
-						</tr>
-						<tr>
-							<td>Количество звезд в кассете</td>
-							<td><b>{bike.numberOfStarsInCassette}</b></td>
-						</tr>
-					</tbody>
-					<tbody>
-						<tr>
-							<th colspan="2" className="table__title">Тормоза</th>
-						</tr>
-						<tr>
-							<td>Тип переднего тормоза</td>
-							<td><b>{Func.icon(bike.frontBrake)}</b></td>
-						</tr>
-						<tr>
-							<td>Тип заднего тормоза</td>
-							<td><b>{Func.icon(bike.rearBrake)}</b></td>
-						</tr>
-					</tbody>
-					<tbody>
-						<tr>
-							<th colspan="2" className="table__title">Колёса</th>
-						</tr>
-						<tr>
-							<td>Диаметр колёс</td>
-							<td><b>{`${Func.icon(bike.wheelDiameter)}"`}</b></td>
-						</tr>
-						<tr>
-							<td>Двойные обода</td>
-							<td><b>{Func.icon(bike.doubleRims)}</b></td>
-						</tr>
-						<tr>
-							<td>Материал ободьев</td>
-							<td><b>{Func.icon(bike.rimMaterial)}</b></td>
-						</tr>
-						<tr>
-							<td>Покрышки</td>
-							<td><b>----</b></td>
-						</tr>
-						<tr>
-							<td>Рисунок протектора</td>
-							<td><b>{Func.icon(bike.tireTreadPattern)}</b></td>
-						</tr>
-					</tbody>
-					<tbody>
-						<tr>
-							<th colspan="2" className="table__title">Руль</th>
-						</tr>
-						<tr>
-							<td>Грипсы</td>
-							<td><b>{Func.icon(bike.grips)}</b></td>
-						</tr>
-						<tr>
-							<td>«Рога»</td>
-							<td><b>{Func.icon(bike.horns)}</b></td>
-						</tr>
-					</tbody>
-					<tbody>
-						<tr>
-							<th colspan="2" className="table__title">Седло</th>
-						</tr>
-						<tr>
-							<td>Тип седла</td>
-							<td><b>{Func.icon(bike.saddle)}</b></td>
-						</tr>
-						<tr>
-							<td>Амортизация седла</td>
-							<td><b>{Func.icon(bike.saddleDepreciation)}</b></td>
-						</tr>
-					</tbody>
-					<tbody>
-						<tr>
-							<th colspan="2" className="table__title">Педали</th>
-						</tr>
-						<tr>
-							<td>Тип педалей</td>
-							<td><b>{Func.icon(bike.pedals)}</b></td>
-						</tr>
-						<tr>
-							<td>Материал педалей</td>
-							<td><b>{Func.icon(bike.pedalMaterial)}</b></td>
-						</tr>
-					</tbody>
-					<tbody>
-						<tr>
-							<th colspan="2" className="table__title">Комплектация</th>
-						</tr>
-						<tr>
-							<td>Передний щиток</td>
-							<td><b>{Func.icon(bike.frontFlap)}</b></td>
-						</tr>
-						<tr>
-							<td>Задний щиток</td>
-							<td><b>{Func.icon(bike.rearFlap)}</b></td>
-						</tr>
-						<tr>
-							<td>Защита цепи</td>
-							<td><b>{Func.icon(bike.chainProtection)}</b></td>
-						</tr>
-						<tr>
-							<td>Багажник</td>
-							<td><b>{Func.icon(bike.trunk)}</b></td>
-						</tr>
-						<tr>
-							<td>Зеркало заднего вида</td>
-							<td><b>{Func.icon(bike.rearviewMirror)}</b></td>
-						</tr>
-						<tr>
-							<td>Звонок или клаксон</td>
-							<td><b>{Func.icon(bike.bellOrHorn)}</b></td>
-						</tr>
-						<tr>
-							<td>Корзина</td>
-							<td><b>{Func.icon(bike.basket)}</b></td>
-						</tr>
-						<tr>
-							<td>Подножка</td>
-							<td><b>{Func.icon(bike.footboard)}</b></td>
-						</tr>
-						<tr>
-							<td>Фонарь</td>
-							<td><b>{Func.icon(bike.lamp)}</b></td>
-						</tr>
-						<tr>
-							<td>Насос</td>
-							<td><b>{Func.icon(bike.pump)}</b></td>
-						</tr>
-						<tr>
-							<td>Пеги</td>
-							<td><b>----</b></td>
-						</tr>
-					</tbody>
-					<tbody>
-						<tr>
-							<th colspan="2" className="table__title">Аккумулятор</th>
-						</tr>
-						<tr>
-							<td>Напряжение</td>
-							<td><b>----</b></td>
-						</tr>
-						<tr>
-							<td>Ёмкость</td>
-							<td><b>----</b></td>
-						</tr>
-						<tr>
-							<td>Время зарядки</td>
-							<td><b>----</b></td>
-						</tr>
-						<tr>
-							<td>Пробег на одной зарядке</td>
-							<td><b>----</b></td>
-						</tr>
-					</tbody>
-					<tbody>
-						<tr>
-							<th colspan="2" className="table__title">Двигатель</th>
-						</tr>
-						<tr>
-							<td>Мощность электрического двигателя</td>
-							<td><b>----</b></td>
-						</tr>
-						<tr>
-							<td>Максимальная скорость на моторе</td>
-							<td><b>----</b></td>
-						</tr>
-						<tr>
-							<td>Контроллер</td>
-							<td><b>----</b></td>
-						</tr>
-					</tbody>
-*/}				
+
+					{ func.isFullObject(bike.frame) ? <Tbody title="РАМА" titles={description.frame} values={bike.frame} /> : null }
+					{ func.isFullObject(bike.fork) ? <Tbody title="ВИЛКА" titles={description.fork} values={bike.fork} /> : null }
+					{ func.isFullObject(bike.transmission) ? <Tbody title="ТРАНСМИССИЯ" titles={description.transmission} values={bike.transmission} /> : null }
+					{ func.isFullObject(bike.shifters) ? <Tbody title="МАНЕТКИ (ШИФТЕРЫ)" titles={description.shifters} values={bike.shifters} /> : null }
+					{ func.isFullObject(bike.brake) ? <Tbody title="ТОРМОЗА" titles={description.brake} values={bike.brake} /> : null }
+					{ func.isFullObject(bike.wheels) ? <Tbody title="КОЛЁСА" titles={description.wheels} values={bike.wheels} /> : null }
+					{ func.isFullObject(bike.rudder) ? <Tbody title="РУЛЬ" titles={description.rudder} values={bike.rudder} /> : null }
+					{ func.isFullObject(bike.saddle) ? <Tbody title="СЕДЛО" titles={description.saddle} values={bike.saddle} /> : null }
+					{ func.isFullObject(bike.pedals) ? <Tbody title="ПЕДАЛИ" titles={description.pedals} values={bike.pedals} /> : null }
+					{ func.isFullObject(bike.equipment) ? <Tbody title="КОМПЛЕКТАЦИЯ" titles={description.equipment} values={bike.equipment} /> : null }
+					{ func.isFullObject(bike.battery) ? <Tbody title="АККУМУЛЯТОР" titles={description.battery} values={bike.battery} /> : null }
+					{ func.isFullObject(bike.engine) ? <Tbody title="ДВИГАТЕЛЬ" titles={description.engine} values={bike.engine} /> : null }
 				</table>
+
+				<Inaccuracy bike={bike}/>
 			</div>
 		);
 	}

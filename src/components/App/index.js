@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import "./style.scss";
-
 import Menu from "components/menu"
 // import Sidebar from "components/sidebar"
 // import Content from "components/content"
@@ -11,9 +10,9 @@ import BikeWrapper from "components/bike-wrapper";
 class App extends Component {
 	render() {
 
-		// const id = "5ca0ea2b4f4bae2c1407935f";
+		const id = "5ca0ea2b4f4bae2c1407935f";
 		// const id = "5ca3974f842b1e337493e0d6";
-		const id = "5ca39770842b1e337493e0d7";
+		// const id = "5ca39770842b1e337493e0d7";
 
 		return (
 			<div className="page">

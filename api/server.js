@@ -1,5 +1,5 @@
 const config         = require("./config");
-const func         = require("./func");
+const func           = require("./func");
 const expressClass   = require("express");
 const bodyParser     = require("body-parser");
 const mongo          = require("mongodb").MongoClient;
