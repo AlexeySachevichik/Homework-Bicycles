@@ -14,19 +14,17 @@ class RatingView extends Component {
 			return +((item / ratingAmount) * 100).toFixed(2);
 		});
 
-		console.log(percentage);
-
 		return(
 			<div className="rating__wrapper">
-				<div>
-					<div>{ratingStr}</div>
-					<div>{ratingAmount}</div>
+				<div className="rating-info">
+					<div className="rating-value">{ratingStr}</div>
+					<div className="rating-amount">{`${ratingAmount} голосов`}</div>
 				</div>
 
-				<div className="rating-value__wrapper">
+				<div className="rating-graph">
 					{percentage.map( (element, index) => (
-						<div key={index} className="item">
-							<div className="assessment">{index + 1}</div>
+						<div key={ 5 - index } className="item">
+							<div className="assessment">{ 5 - index }</div>
 							<div className="percent_wrapper">
 								<div className="percent" style={{ width: `${element}%`}}/>
 							</div>

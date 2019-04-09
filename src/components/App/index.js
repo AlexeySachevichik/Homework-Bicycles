@@ -1,25 +1,33 @@
 import React, {Component} from "react";
 import "./style.scss";
+// import func from "libs/func";
+
 import Menu from "components/menu"
 // import Sidebar from "components/sidebar"
 // import Content from "components/content"
 import Footer from "components/footer"
-import BikeWrapper from "components/bike-wrapper";
+import BikeDetails from "components/bike-details";
 
 
 class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			id: "5ca0ea2b4f4bae2c1407935f"
+		};
+	}
+
+
+
 	render() {
-
-		const id = "5ca0ea2b4f4bae2c1407935f";
-		// const id = "5ca3974f842b1e337493e0d6";
-		// const id = "5ca39770842b1e337493e0d7";
-
 		return (
 			<div className="page">
 				<header className="page__header">
 					<Menu />
 				</header>
-				<BikeWrapper id={id}/>
+
+				<BikeDetails id={this.state.id} />
+
 				{/*
 				<section className="page__body">
 					<div className="body__sidebar">

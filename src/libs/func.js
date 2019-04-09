@@ -5,7 +5,37 @@ const func = {
 	 * Адрес и хост на котором слушает API
  	 */
 	host: "http://localhost:8000",
-	
+
+	/*
+	 * xhr(host) - AJAX запрос
+	 * @param
+	 * @return
+	 */
+	xhr: function(host, method, asyn, body, callback){
+		let f = callback || function(data){};
+
+		let xhr = new XMLHttpRequest();
+		xhr.open(method, this.host + host, asyn);
+
+		if( asyn ){
+			xhr.timeout = 60000;
+		};
+		
+
+		if( body !== undefined && typeof body === "object" ){
+			xhr.send(body);
+		} else {
+			xhr.send();
+		}
+
+		xhr.onreadystatechange = function(){
+			if (xhr.status === 200 && xhr.readyState === 4 ){
+				f(xhr.responseText);
+			// } else {
+			// 	console.log( "ERROR XHR: " + xhr.status + ' - ' + xhr.statusText );
+			}
+		}
+	},
 
 	/*
 	 * calculateRating(arr) - Вычисление рейтинга
@@ -91,7 +121,6 @@ const func = {
 			return value;
 		}
 	},
-
 
 	isFullObject: function(obj){
 	    if( obj === null || typeof obj !== "object" ) return false;

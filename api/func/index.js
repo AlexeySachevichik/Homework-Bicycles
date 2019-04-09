@@ -19,6 +19,9 @@ const Func = {
 	},
 	mes: function(m){
 		console.log(`[${this.getLogTime()}] ${m}`);
+	},
+	err: function(m){
+		console.error(`[${this.getLogTime()}] ${m}`);
 	}
 };
 
