@@ -3,8 +3,8 @@ import "./style.scss";
 // import func from "libs/func";
 
 import Menu from "components/menu"
-// import Sidebar from "components/sidebar"
-// import Content from "components/content"
+import Sidebar from "components/sidebar"
+import Content from "components/content"
 import Footer from "components/footer"
 import BikeDetails from "components/bike-details";
 
@@ -13,7 +13,9 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			id: "5ca0ea2b4f4bae2c1407935f"
+			id: "5ca0ea2b4f4bae2c1407935f",
+			showBikeDetail: false,
+			showBikeList: true,
 		};
 	}
 
@@ -26,18 +28,19 @@ class App extends Component {
 					<Menu />
 				</header>
 
-				<BikeDetails id={this.state.id} />
+				{ this.state.showBikeDetail ? <BikeDetails id={this.state.id} /> : null}
+				
+				{ this.state.showBikeList ? (
+					<section className="page__body">
+						<div className="body__sidebar">
+							<Sidebar />
+						</div>
+						<div className="body__content">
+							<Content />
+						</div>
+					</section>
+				) : null}
 
-				{/*
-				<section className="page__body">
-					<div className="body__sidebar">
-						<Sidebar />
-					</div>
-					<div className="body__content">
-						<Content />
-					</div>
-				</section>
-				*/}
 				<footer className="page__footer">
 					<Footer />
 				</footer>
